@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>C#(CSharp)学习笔记_多态【十九】 | Almango</title><meta name="author" content="Almango"><meta name="copyright" content="Almango"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言 个人觉得多态在面向对象编程中还比较重要的，而且不容易理解。 也是学了一个下午，才把笔记写得相对比较完善，但仍欠缺一些内容。 慢慢来吧……  什么是多态？基本概念 在编程语言和类型论中，多态（Polymorphism）指为不同数据类型的实体提供统一的接口。 多态类型（Polymorphic Type）可以将自身所支持的操作套用到其它类型的值上。 多态是面向对象编程（OOP）的一个基本概念，是面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#(CSharp)学习笔记_多态【十九】">
+<meta property="og:url" content="https://almango.cn/2024/06/17/CSharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%A4%9A%E6%80%81%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91/index.html">
+<meta property="og:site_name" content="Almango">
+<meta property="og:description" content="前言 个人觉得多态在面向对象编程中还比较重要的，而且不容易理解。 也是学了一个下午，才把笔记写得相对比较完善，但仍欠缺一些内容。 慢慢来吧……  什么是多态？基本概念 在编程语言和类型论中，多态（Polymorphism）指为不同数据类型的实体提供统一的接口。 多态类型（Polymorphic Type）可以将自身所支持的操作套用到其它类型的值上。 多态是面向对象编程（OOP）的一个基本概念，是面">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://almango.cn/img/cover/csharp.jpg">
+<meta property="article:published_time" content="2024-06-17T13:10:18.000Z">
+<meta property="article:modified_time" content="2024-06-17T13:37:22.100Z">
+<meta property="article:author" content="Almango">
+<meta property="article:tag" content="C#">
+<meta property="article:tag" content=".NET">
+<meta property="article:tag" content="开发工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://almango.cn/img/cover/csharp.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://almango.cn/2024/06/17/CSharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%A4%9A%E6%80%81%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.14.0-b3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.35/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><link rel="stylesheet" href="https://fonts.font.im/css?family=Didact+Gothic|Fredoka+One" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"温馨提示：该文章自上次更新以来的天数已超过","messageNext":"天，文章内容可能已过时，请慎阅……"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C#(CSharp)学习笔记_多态【十九】',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-17 21:37:22'
+}</script><link rel="stylesheet" href="css/font.css"><link rel="stylesheet" href="/css/custom.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Varela+Round&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">56</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-hard-drive"></i><span> 网盘</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw fa-solid fa-paper-plane"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.123pan.com"><i class="fa-fw fa-solid fa-cloud"></i><span> 123网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.lanzoui.com/"><i class="fa-fw fa-solid fa-cloud"></i><span> 蓝奏云盘</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-file"></i><span> 日志</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw fa-solid fa-arrows-rotate"></i><span> 更新日志</span></a></li><li><a class="site-page child" href="/2024/07/19/%E9%9A%8F%E5%BF%83%E6%97%A5%E8%AE%B0/"><i class="fa-fw fa-solid fa-pen-nib"></i><span> 随心日记</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 学习笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/C%E8%AF%AD%E8%A8%80/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> C</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/TypeScript/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> TypeScript</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/2024/08/03/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E9%A2%98/"><i class="fa-fw fa-sharp fa-solid fa-square-root-variable"></i><span> 算法</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="/album/"><i class="fa-fw fa-solid fa-image"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Almango"><span class="site-name">Almango</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-hard-drive"></i><span> 网盘</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw fa-solid fa-paper-plane"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.123pan.com"><i class="fa-fw fa-solid fa-cloud"></i><span> 123网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.lanzoui.com/"><i class="fa-fw fa-solid fa-cloud"></i><span> 蓝奏云盘</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa-solid fa-file"></i><span> 日志</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw fa-solid fa-arrows-rotate"></i><span> 更新日志</span></a></li><li><a class="site-page child" href="/2024/07/19/%E9%9A%8F%E5%BF%83%E6%97%A5%E8%AE%B0/"><i class="fa-fw fa-solid fa-pen-nib"></i><span> 随心日记</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 学习笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/C%E8%AF%AD%E8%A8%80/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> C</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Linux/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> Linux</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/TypeScript/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> TypeScript</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/2024/08/03/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E9%A2%98/"><i class="fa-fw fa-sharp fa-solid fa-square-root-variable"></i><span> 算法</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" href="/album/"><i class="fa-fw fa-solid fa-image"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">C#(CSharp)学习笔记_多态【十九】</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-17T13:10:18.000Z" title="发表于 2024-06-17 21:10:18">2024-06-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-17T13:37:22.100Z" title="更新于 2024-06-17 21:37:22">2024-06-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/">CSharp</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C#(CSharp)学习笔记_多态【十九】"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
+<li>个人觉得多态在面向对象编程中还比较重要的，而且不容易理解。</li>
+<li>也是学了一个下午，才把笔记写得相对比较完善，但仍欠缺一些内容。</li>
+<li>慢慢来吧……</li>
+</ol>
+<h1 id="什么是多态？"><a href="#什么是多态？" class="headerlink" title="什么是多态？"></a>什么是多态？</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li>在编程语言和类型论中，多态（<strong>Polymorphism</strong>）指为不同数据类型的实体提供统一的接口。 多态类型（<strong>Polymorphic Type</strong>）可以将自身所支持的操作套用到其它类型的值上。</li>
+<li><strong>多态是面向对象编程（OOP）的一个基本概念，是面向对象的三大特征之一</strong>。它允许不同的对象对同一消息做出响应，但具体的行为会根据对象的实际类型而有所不同。在C#中，多态主要通过继承和接口实现。本文将探讨多态的基本概念、实现方式以及在C#中的一些实际应用。</li>
+<li>多态性可以定义为允许不同类的对象对同一消息做出响应的能力，但具体响应取决于消息接收者的实际类型。简单来说，多态性允许我们编写更通用的代码，可以处理不同类型的对象。</li>
+</ol>
+<h2 id="多态的作用"><a href="#多态的作用" class="headerlink" title="多态的作用"></a>多态的作用</h2><p><strong>1. 接口实现</strong>：多态使得一个接口可以有多种不同的实现方式。子类可以重写父类的方法，以提供特定的实现。</p>
+<p><strong>2. 代码复用</strong>：通过继承和多态，可以减少代码的重复编写，提高代码的复用性。</p>
+<p><strong>3. 灵活性和扩展性</strong>：多态允许程序在不修改现有代码的情况下，通过增加新的子类来扩展功能。</p>
+<p><strong>4. 解耦</strong>：多态减少了代码之间的耦合度。高层模块可以操作抽象类型，而具体的实现可以由子类提供，这使得高层模块不依赖于具体实现。</p>
+<p><strong>5. 动态绑定</strong>：在运行时，多态允许调用正确的方法版本，这是通过动态绑定或晚期绑定实现的。</p>
+<p><strong>6. 简化复杂性</strong>：多态简化了处理复杂系统的方式，因为可以使用统一的接口来处理不同类型的对象。</p>
+<p><strong>7. 支持开放&#x2F;封闭原则</strong>：多态支持开放&#x2F;封闭原则，即软件实体应该对扩展开放，对修改封闭。这意味着可以在不改变现有代码的基础上增加新功能。</p>
+<p><strong>8. 提高代码的可维护性</strong>：由于多态减少了代码间的依赖，因此当需要修改或更新时，可以更容易地进行维护。</p>
+<p><strong>9. 支持设计模式</strong>：多态是许多设计模式的基础，如工厂模式、策略模式等，这些模式可以进一步增强代码的灵活性和可维护性。</p>
+<p><strong>10. 促进面向对象设计</strong>：多态是面向对象设计的核心概念之一，它鼓励开发者采用面向对象的方法来思考和解决问题。</p>
+<p>在C#中实现多态，通常涉及到接口、抽象类和虚方法的使用。通过这些机制，开发者可以创建灵活且可扩展的应用程序。</p>
+<h1 id="多态的实现方法"><a href="#多态的实现方法" class="headerlink" title="多态的实现方法"></a>多态的实现方法</h1><h2 id="虚方法重写"><a href="#虚方法重写" class="headerlink" title="虚方法重写"></a>虚方法重写</h2><ol>
+<li>虚方法（Virtual Methods）和方法重写（Override）是实现多态的两种机制，它们允许子类改变继承自父类的行为。</li>
+<li><strong>虚方法（Virtual Methods）</strong></li>
+</ol>
+<blockquote>
+<ul>
+<li><em>定义</em>：虚方法是在基类中使用virtual关键字声明的方法，它允许在派生类中被重写。</li>
+<li><em>目的</em>：虚方法的目的是为了在派生类中提供特定于派生类的行为。 </li>
+<li><em>调用</em>：虚方法可以在基类中被调用，也可以在派生类中被调用，调用哪个方法取决于对象的运行时类型。</li>
+<li>使用场景：当你希望提供一个默认的行为，并且允许派生类根据需要修改这个行为时，使用虚方法。</li>
+</ul>
+</blockquote>
+<ol start="3">
+<li><strong>方法重写（Override）</strong></li>
+</ol>
+<blockquote>
+<ul>
+<li>定义：方法重写是在派生类中使用override关键字来重写基类中的虚方法。</li>
+<li>目的：方法重写的目的是为了提供与基类不同的实现，以适应派生类的具体需求。</li>
+<li>调用：方法重写只能在派生类中调用，用于改变或扩展基类的行为。</li>
+<li>使用场景：当你需要根据派生类的特性来改变基类方法的行为时，使用方法重写。</li>
+</ul>
+</blockquote>
+<p><img src="/img/post_img/post_duotai_1.png" alt="在这里插入图片描述"></p>
+<p><strong>注意：<em>虚方法重写不能出现在同一个类中，重写方法必须在派生类中</em></strong><br>5. 看实例：C#中的virtual关键字允许我们定义一个可以在派生类中被重写的方法。我们先定义一个Fruit类，在里面用virtual关键字写一个Apple( )方法，看的出来，被virtual修饰符修饰的方法我们称它为虚方法。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Fruit</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Apple</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.Write(<span class="string">&quot;我是一个苹果&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>在写完虚方法后，我们再定义一个继承Fruit类的派生类RedFuJiApple。在里面写一个重写方法Apple( )，什么叫重写呢？说明白点，就是把上面的虚方法重写，重写方法要用override关键字修饰。</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">RedFuJiApple</span>():Fruit</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Apple</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.Write(<span class="string">&quot;我是一个红富士苹果&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>最后执行代码，会发现：原本调用RedFuJiApple对象时，输出的应该是父类被继承的Apple方法，但因为我们在派生类中重写了Apple方法，所以最终输出的是：“我是一个红富士苹果”。父类中被重写的虚方法相当于被覆盖掉了。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Fruit Eat = <span class="keyword">new</span> RedFuJiApple();</span><br><span class="line">Eat.Apple();</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h2><ol>
+<li>函数重载（Function Overload）是实现多态的方式之一。方法重载发生在同一个类中，它允许一个类中存在多个同名的方法，但它们的实际参数不能相同(包括实参的类型、数量或顺序不同，其中之一不同即可)。<br><strong>温馨提示</strong>：<em>方法和函数本质上是没什么区别的，在面向对象中，它们俩经常被交替称呼，所以方法重载和函数重载其实指的是同一件事情。</em><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Overload</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculation</span>(<span class="params"><span class="built_in">int</span> addition, <span class="built_in">int</span> addition_2</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(addition + addition_2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculation</span>(<span class="params"><span class="built_in">int</span> multiplication</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(multiplication * multiplication);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>我们可以在一个类中写多个同名方法，前提是实参内容不能相同。</li>
+</ol>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Overload Math = <span class="keyword">new</span> Overload();</span><br><span class="line">Math.calculation(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">Math.calculation(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>C#编译器在编译时会根据传递给函数的参数类型和数量来确定调用哪个重载的方法。如果存在多个重载的函数，并且编译器无法确定调用哪一个，编译器将会报错。</li>
+<li>在调用方法时，我们只需要区分开来即可，这就是重载函数的使用，也是实现多态的方式之一。</li>
+</ol>
+<h2 id="抽象类与抽象方法"><a href="#抽象类与抽象方法" class="headerlink" title="抽象类与抽象方法"></a>抽象类与抽象方法</h2><blockquote>
+<ol>
+<li>抽象类往往用来表征对问题领域进行分析、设计中得出的抽象概念，是对一系列看上去不同，但是本质上相同的具体概念的抽象。</li>
+<li>在面向对象的概念中，所有的对象都是通过类来描绘的，但是反过来，并不是所有的类都是用来描绘对象的，如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。</li>
+</ol>
+</blockquote>
+<ol>
+<li><strong>抽象类(Abstract)是一种不能被实例化的类</strong>，它通常用作其他类的<strong>基类</strong>。</li>
+<li>抽象类允许你定义一些通用的行为和属性，这些可以被派生类继承和扩展。</li>
+<li>抽象类也可以定义抽象方法。 方法是将关键字 <strong>abstract</strong> 添加到方法的返回类型的前面。</li>
+</ol>
+<p><img src="/img/post_img/post_duotai_2.png" alt="在这里插入图片描述"></p>
+<ol start="4">
+<li>实例操作一下：我们定义一个抽象类Drink，并在类里面定义一个抽象方法Coffee，这个抽象方法不允许包含任何内容，其次我们在写一个普通的方法。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Drink</span>()    <span class="comment">// 抽象类</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Coffee</span>()</span>;   <span class="comment">// 抽象方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MilkTea</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我是一杯奶茶&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>再另外定义一个派生类，重写一个Coffee方法。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Juice</span>() : Drink</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Coffee</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我是一杯咖啡&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在运行时我们会发现，我们无法直接实例化抽象类，也无法直接调用抽象方法，仅能够实例化派生类和调用重写方法。<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> Drink Eat = <span class="keyword">new</span> Juice();</span><br><span class="line"><span class="comment">//Drink Eat = new Drink();  不允许实例化抽象类和调用抽象方法</span></span><br><span class="line">Eat.Coffee();</span><br><span class="line">Eat.MilkTea();</span><br></pre></td></tr></table></figure>
+8.抽象类和抽象方法的主要用途是实现代码的复用和多态性，同时为派生类提供一个必须遵循的契约。</li>
+</ol>
+<h2 id="整体代码参考"><a href="#整体代码参考" class="headerlink" title="整体代码参考"></a>整体代码参考</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Almango</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Fruit</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Apple</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.Write(<span class="string">&quot;我是一个苹果&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">RedFuJiApple</span>():Fruit</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Apple</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            Console.Write(<span class="string">&quot;我是一个红富士苹果&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Overload</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculation</span>(<span class="params"><span class="built_in">int</span> addition, <span class="built_in">int</span> addition_2</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(addition + addition_2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">calculation</span>(<span class="params"><span class="built_in">int</span> multiplication</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(multiplication * multiplication);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Drink</span>()    <span class="comment">// 抽象类</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">Coffee</span>()</span>;   <span class="comment">// 抽象方法</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MilkTea</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我是一杯奶茶&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Juice</span>() : Drink</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">Coffee</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我是一杯咖啡&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Run</span>()</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)   <span class="comment">// Main方法</span></span></span><br><span class="line">        &#123;</span><br><span class="line">         </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>到这里，面向对象编程的基本原理我们心里已经一知半解了，我们也离入门更进一步了。继续努力！！！</li>
+</ol>
+<link rel="stylesheet" href="/css/folder.css" type="text/css"><script src="/js/folder.js" type="text/javascript" async></script></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://almango.cn">Almango</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://almango.cn/2024/06/17/CSharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%A4%9A%E6%80%81%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91/">https://almango.cn/2024/06/17/CSharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%A4%9A%E6%80%81%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://almango.cn" target="_blank">Almango</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C#</a><a class="post-meta__tags" href="/tags/NET/">.NET</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a></div><div class="post_share"><div class="social-share" data-image="/img/cover/csharp.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/22/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%89%8D%E8%A8%80%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%9D%E8%AF%86%E3%80%901%E3%80%91/" title="Linux学习笔记：前言与操作系统的初识【1】"><img class="cover" src="/img/cover/Linux.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux学习笔记：前言与操作系统的初识【1】</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/16/CSharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%B0%81%E8%A3%85%E3%80%90%E5%8D%81%E5%85%AB%E3%80%91/" title="C#(CSharp)学习笔记_封装【十八】"><img class="cover" src="/img/cover/csharp.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C#(CSharp)学习笔记_封装【十八】</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Almango</div><div class="author-info__description">天真永不消逝，浪漫至死不渝是❤</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">56</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">37</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">39</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Almango"><i class="fab fa-github"></i><span>戳一下</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/almango" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1830314643" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #74C0FC;"></i></a><a class="social-icon" href="https://space.bilibili.com/1278951656?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili" style="color: #74C0FC;"></i></a><a class="social-icon" href="https://outlook.live.com/mail/" target="_blank" title="Email"><i class="fa-regular fa-envelope" style="color: #FFD43B;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%A4%9A%E6%80%81%EF%BC%9F"><span class="toc-number"></span> <span class="toc-text">什么是多态？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%80%81%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">多态的作用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E6%80%81%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">多态的实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99"><span class="toc-number">1.</span> <span class="toc-text">虚方法重写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD"><span class="toc-number">2.</span> <span class="toc-text">函数重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">抽象类与抽象方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E4%BB%A3%E7%A0%81%E5%8F%82%E8%80%83"><span class="toc-number">4.</span> <span class="toc-text">整体代码参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/08/03/%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95%E9%A2%98/" title="经典算法题">经典算法题</a><time datetime="2024-08-03T02:10:10.000Z" title="发表于 2024-08-03 10:10:10">2024-08-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/02/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%8B2024%E9%87%8D%E6%98%A0%E8%A7%82%E5%90%8E%E6%84%9F%EF%BC%9A%E4%B8%8D%E7%BB%99%E4%BA%BA%E7%94%9F%E7%95%99%E4%B8%8B%E9%81%97%E6%86%BE/" title="《你的名字》2024重映观后感：不留人生遗憾"><img src="https://sh.jsdmirror.com/gh/Almango/Blog_imgbed@main/cover/yourname.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="《你的名字》2024重映观后感：不留人生遗憾"/></a><div class="content"><a class="title" href="/2024/08/02/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%8B2024%E9%87%8D%E6%98%A0%E8%A7%82%E5%90%8E%E6%84%9F%EF%BC%9A%E4%B8%8D%E7%BB%99%E4%BA%BA%E7%94%9F%E7%95%99%E4%B8%8B%E9%81%97%E6%86%BE/" title="《你的名字》2024重映观后感：不留人生遗憾">《你的名字》2024重映观后感：不留人生遗憾</a><time datetime="2024-08-02T03:00:30.000Z" title="发表于 2024-08-02 11:00:30">2024-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/30/TypeScript_%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E3%80%902%E3%80%91/" title="TypeScript_环境部署【2】"><img src="/img/cover/typescript.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TypeScript_环境部署【2】"/></a><div class="content"><a class="title" href="/2024/07/30/TypeScript_%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E3%80%902%E3%80%91/" title="TypeScript_环境部署【2】">TypeScript_环境部署【2】</a><time datetime="2024-07-30T04:00:11.000Z" title="发表于 2024-07-30 12:00:11">2024-07-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/30/TypeScript_%E5%88%9D%E8%AF%86%E3%80%901%E3%80%91/" title="TypeScript_初始【1】"><img src="/img/cover/typescript.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="TypeScript_初始【1】"/></a><div class="content"><a class="title" href="/2024/07/30/TypeScript_%E5%88%9D%E8%AF%86%E3%80%901%E3%80%91/" title="TypeScript_初始【1】">TypeScript_初始【1】</a><time datetime="2024-07-30T03:30:12.000Z" title="发表于 2024-07-30 11:30:12">2024-07-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/07/28/PicGo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" title="PicGo + Github图床搭建"><img src="/img/cover/picgo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="PicGo + Github图床搭建"/></a><div class="content"><a class="title" href="/2024/07/28/PicGo%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" title="PicGo + Github图床搭建">PicGo + Github图床搭建</a><time datetime="2024-07-28T14:05:02.000Z" title="发表于 2024-07-28 22:05:02">2024-07-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2023 - 2024 By Almango</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.14.0-b3"></script><script src="/js/main.js?v=4.14.0-b3"></script><script src="/js/tw_cn.js?v=4.14.0-b3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.35/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = (ele) => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from(ele).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+    
+    codeMermaidEle.forEach(ele => {
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.innerHTML = `<pre class="mermaid-src" hidden>${ele.textContent}</pre>`
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js').then(runMermaidFn)
+  }
+  
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.14.0-b3"></script></div></div><!-- hexo injector body_end start --><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>往年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v3.8.2" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，默认线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，联通线路托管于Coding" title=""><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a><a class="github-badge" target="_blank" href="https://icp.gov.moe/?keyword=20240146" style="margin-inline:5px" data-title="萌ICP备 纯属萌友网站联萌！" title=""><img src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20240146-fe1384?style-flat&amp;logo=data:image/png;base64,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" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><!-- hexo injector body_end end --></body></html>
