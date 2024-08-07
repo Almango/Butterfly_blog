@@ -2380,14 +2380,13 @@ maxWidth1200()
   margin: 15px 10px;
   width: 60px;
   height: 60px;
-  border-radius: 35px;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   margin: 8px 0 8px 0;
-  border-radius: 50%;
+  border-radius: 12px;
   overflow: hidden;
 }
 .butterfly-flink-list > .flink-list-item a .flink-item-icon img {
@@ -2840,7 +2839,6 @@ maxWidth1200()
   width: 10px;
   height: 10px;
   margin: 0 1px 0 1px;
-  border-radius: 50%;
   display: block;
   border: 1px solid;
   display: -webkit-box;
@@ -3723,6 +3721,9 @@ h1.page-title + .tag-cloud-list {
   width: 4.2em;
   height: 4.2em;
 }
+#aside-content .aside-list > .aside-list-item .thumbnail :first-child {
+  border-radius: 20%;
+}
 #aside-content .aside-list > .aside-list-item .content {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -3733,6 +3734,7 @@ h1.page-title + .tag-cloud-list {
   flex: 1;
   padding-left: 10px;
   word-break: break-all;
+  border-radius: 12px;
 }
 #aside-content .aside-list > .aside-list-item .content > .name {
   -webkit-line-clamp: 1;
