@@ -1,0 +1,532 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Almango - 天真永不消逝，浪漫至死不渝</title><meta name="author" content="Almango"><meta name="copyright" content="Almango"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="天真永不消逝，浪漫至死不渝">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Almango">
+<meta property="og:url" content="https://almango.cn/page/7/index.html">
+<meta property="og:site_name" content="Almango">
+<meta property="og:description" content="天真永不消逝，浪漫至死不渝">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://almango.cn/img/favicon.png">
+<meta property="article:author" content="Almango">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://almango.cn/img/favicon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://almango.cn/page/7/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.14.0-b3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.35/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>(()=>{
+      const saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+      
+      window.btf = {
+        saveToLocal: saveToLocal,
+        getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+          const script = document.createElement('script')
+          script.src = url
+          script.async = true
+          script.onerror = reject
+          script.onload = script.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            script.onload = script.onreadystatechange = null
+            resolve()
+          }
+
+          Object.keys(attr).forEach(key => {
+            script.setAttribute(key, attr[key])
+          })
+
+          document.head.appendChild(script)
+        }),
+
+        getCSS: (url, id = false) => new Promise((resolve, reject) => {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'
+          link.href = url
+          if (id) link.id = id
+          link.onerror = reject
+          link.onload = link.onreadystatechange = function() {
+            const loadState = this.readyState
+            if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+            link.onload = link.onreadystatechange = null
+            resolve()
+          }
+          document.head.appendChild(link)
+        }),
+
+        addGlobalFn: (key, fn, name = false, parent = window) => {
+          const pjaxEnable = false
+          if (!pjaxEnable && key.startsWith('pjax')) return
+
+          const globalFn = parent.globalFn || {}
+          const keyObj = globalFn[key] || {}
+    
+          if (name && keyObj[name]) return
+    
+          name = name || Object.keys(keyObj).length
+          keyObj[name] = fn
+          globalFn[key] = keyObj
+          parent.globalFn = globalFn
+        }
+      }
+    
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+      
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })()</script><link rel="stylesheet" href="https://fonts.font.im/css?family=Didact+Gothic|Fredoka+One" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":300,"position":"top","messagePrev":"温馨提示：该文章自上次更新以来的天数已超过","messageNext":"天，文章内容可能已过时，请慎阅……"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":true,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Almango',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-10-09 18:26:48'
+}</script><link rel="stylesheet" href="/css/loadding.css"><link rel="stylesheet" href="/css/modify.css"><span id="fps"></span><link rel="stylesheet" href="/css/fps.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Varela+Round&display=swap" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fa-solid fa-hard-drive"></i><span> 网盘</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw fa-solid fa-paper-plane"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.123pan.com"><i class="fa-fw fa-solid fa-cloud"></i><span> 123网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.lanzoui.com/"><i class="fa-fw fa-solid fa-cloud"></i><span> 蓝奏云盘</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fa-solid fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fa-solid fa-file"></i><span> 日志</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw fa-solid fa-arrows-rotate"></i><span> 更新日志</span></a></li><li><a class="site-page child" href="/2024/07/19/%E9%9A%8F%E5%BF%83%E6%97%A5%E8%AE%B0/"><i class="fa-fw fa-solid fa-pen-nib"></i><span> 随心日记</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 学习笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/cpp/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> C++</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on"><i class="fa-fw fa-solid fa-train"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/album/"><i class="fa-fw fa-solid fa-image"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background: transparent"><nav id="nav"><span id="blog-info"><a href="/" title="Almango"><span class="site-name">Almango</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fa-solid fa-hard-drive"></i><span> 网盘</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw fa-solid fa-paper-plane"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.123pan.com"><i class="fa-fw fa-solid fa-cloud"></i><span> 123网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.lanzoui.com/"><i class="fa-fw fa-solid fa-cloud"></i><span> 蓝奏云盘</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fa-solid fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fa-solid fa-file"></i><span> 日志</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw fa-solid fa-arrows-rotate"></i><span> 更新日志</span></a></li><li><a class="site-page child" href="/2024/07/19/%E9%9A%8F%E5%BF%83%E6%97%A5%E8%AE%B0/"><i class="fa-fw fa-solid fa-pen-nib"></i><span> 随心日记</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw fas fa-list"></i><span> 学习笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/cpp/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> C++</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"><i class="fa-fw fa-sharp fa-solid fa-code"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></div><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on"><i class="fa-fw fa-solid fa-train"></i><span> 开往</span></a></div><div class="menus_item"><a class="site-page" href="/album/"><i class="fa-fw fa-solid fa-image"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">Almango</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/almango" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1830314643" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #74C0FC;"></i></a><a class="social-icon" href="https://space.bilibili.com/1278951656?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili" style="color: #74C0FC;"></i></a><a class="social-icon" href="https://outlook.live.com/mail/" target="_blank" title="Email"><i class="fa-regular fa-envelope" style="color: #FFD43B;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/2024/01/24/%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%EF%BC%8C%E5%B0%81%E9%9D%A2%EF%BC%8C%E6%A0%87%E9%A2%98%EF%BC%8C%E6%97%A5%E6%9C%9F%EF%BC%88Hexo%EF%BC%89/" title="文章添加标签，封面，标题，日期（Hexo）"><img class="post-bg" src="/img/cover/hexo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="文章添加标签，封面，标题，日期（Hexo）"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/01/24/%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%EF%BC%8C%E5%B0%81%E9%9D%A2%EF%BC%8C%E6%A0%87%E9%A2%98%EF%BC%8C%E6%97%A5%E6%9C%9F%EF%BC%88Hexo%EF%BC%89/" title="文章添加标签，封面，标题，日期（Hexo）">文章添加标签，封面，标题，日期（Hexo）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-01-24T07:48:30.000Z" title="发表于 2024-01-24 15:48:30">2024-01-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/01/24/%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%EF%BC%8C%E5%B0%81%E9%9D%A2%EF%BC%8C%E6%A0%87%E9%A2%98%EF%BC%8C%E6%97%A5%E6%9C%9F%EF%BC%88Hexo%EF%BC%89/#post-comment"><span class="waline-comment-count" data-path="/2024/01/24/%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E6%A0%87%E7%AD%BE%EF%BC%8C%E5%B0%81%E9%9D%A2%EF%BC%8C%E6%A0%87%E9%A2%98%EF%BC%8C%E6%97%A5%E6%9C%9F%EF%BC%88Hexo%EF%BC%89/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">文章&#x2F;导航页添加标签，封面，标题，日期（Hexo）我们只需要在写好的Markdown文本中的顶部加入这些代码即可12345678910111213`title: Python Socket TCP简单通信【二】 #  设置文章标题``date: 2017-05-27 13:47:33       # 设置发布时间（默认不设）``cover: img\post_ing\1.jpg       # 设置文章封面（包括标题封面）``categories:              # 添加分类``- Python``- 编程语言``- 网络编程`
+
+
+
+1. 文章添加分类123categories:                           # 添加分类- Python- 编程语言
+
+
+
+2. 文章添加标签123tags:                           # 添加标签- Python- 编程语言
+
+1. 导航页添加封面123456---title: about               date: 2024-01-01 22:46:09        ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/01/23/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%88%90%E5%8A%9F%E5%95%A6/" title="我的个人博客发布成功啦!!!"><img class="post-bg" src="/img/cover/hexo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="我的个人博客发布成功啦!!!"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/01/23/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%88%90%E5%8A%9F%E5%95%A6/" title="我的个人博客发布成功啦!!!">我的个人博客发布成功啦!!!</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-01-23T02:19:19.000Z" title="发表于 2024-01-23 10:19:19">2024-01-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/01/23/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%88%90%E5%8A%9F%E5%95%A6/#post-comment"><span class="waline-comment-count" data-path="/2024/01/23/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%88%90%E5%8A%9F%E5%95%A6/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">我的个人博客发布成功啦！！！
+
+这大概是两年前的是吧？我曾一直希望自己能搭建并上传自己的个人博客，但是受服务器和虚拟机的影响（太贵了，时间久了，对于我们学生党来说，确实是不小的开支）
+此外，还受到框架因素的影响，原本是采用原生的H5+CSS+JavaScript搭建博客的，后来有去WordPress，都不太行（这样的网站框架只能上传到虚拟机中）最后选择了Hexo框架：纯静态框架（因为GitHub和Gitee听说是可以免费托管静态网站的）
+时长两年半，我最最终还是在Gitee中发布了。（真的花了我不少时间，尤其是在高三段）
+
+
+
+网站框架采用：Hexo （Static Frame）
+框架主题源自：Hexo-Theme-Anzhiyu（开源项目）
+托管平台：Gitee（码云）
+
+博客网站正处于持续更新阶段……
+因为是基于Hexo-Theme-Butterfly主题，不管怎么样，我们都是要熟悉该主题项目的源码的，所以在魔改和更新的路上并不会很顺利，主要是耗时间……
+Anzhiyu主题为我们提供了一本主题手册，这比原生的Butterfly好太多。
+
+现在终于可以安心干其他事了
+因为搭建博客原因 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/01/23/FydeOS17%E5%9B%BD%E4%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A8%E8%BF%87%E7%A8%8B%E5%AE%89%E8%A3%85/" title="FydeOS17国产操作系统全过程安装【保姆级教程】"><img class="post-bg" src="/img/cover/fydeos.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FydeOS17国产操作系统全过程安装【保姆级教程】"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/01/23/FydeOS17%E5%9B%BD%E4%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A8%E8%BF%87%E7%A8%8B%E5%AE%89%E8%A3%85/" title="FydeOS17国产操作系统全过程安装【保姆级教程】">FydeOS17国产操作系统全过程安装【保姆级教程】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-01-23T02:15:06.000Z" title="发表于 2024-01-23 10:15:06">2024-01-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/01/23/FydeOS17%E5%9B%BD%E4%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A8%E8%BF%87%E7%A8%8B%E5%AE%89%E8%A3%85/#post-comment"><span class="waline-comment-count" data-path="/2024/01/23/FydeOS17%E5%9B%BD%E4%BA%A7%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%85%A8%E8%BF%87%E7%A8%8B%E5%AE%89%E8%A3%85/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">@[toc]
+系统介绍什么是FydeOS ?
+
+FydeOS （原名 Flint OS）是由燧炻科技创新（北京）有限责任公司基于开源项目 Chromium Project 二次开发，适配x86 与 ARM 硬件平台，定位于中国版的 Google Chrome OS。FydeOS提供包括操作系统产品定制化的技术咨询、解决方案以及商业授权服务。
+
+
+FydeOS 是一款基于Linux+Chromium Project开发的轻量级操作系统，它的和Google的Chrome OS极为相似，有着ChromeBook和MacOS类似的使用体验，能够在大部分主流硬件上平稳运行，并且兼容Android应用程序和Linux。以浏览器平台为基础，加入更多符合国内用户习惯的本地化功能以提升用户体验。经过长期的技术积累，FydeOS 有能力运行在各种主流的硬件设备之中并提供围绕 FydeOS 展开的整体解决方案。
+
+
+FydeOS适应了时代的发展，作为轻量级的操作系统，它能够轻松运行在老旧的计算机中，甚至是十几年前的电脑，从关机到桌面显示只需要几秒钟，正如它的价值观所说：“世间众生平等，硬件亦无高低贵贱之分。 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/01/14/HarmonyOS4.0%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%EF%BC%9A%E5%AE%89%E8%A3%85DevEco%20Studio%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E3%80%91/" title="HarmonyOS4.0应用开发【学习笔记3：安装DevEco Studio开发环境】"><img class="post-bg" src="/img/cover/harmony.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HarmonyOS4.0应用开发【学习笔记3：安装DevEco Studio开发环境】"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/01/14/HarmonyOS4.0%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%EF%BC%9A%E5%AE%89%E8%A3%85DevEco%20Studio%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E3%80%91/" title="HarmonyOS4.0应用开发【学习笔记3：安装DevEco Studio开发环境】">HarmonyOS4.0应用开发【学习笔记3：安装DevEco Studio开发环境】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-01-14T14:47:33.000Z" title="发表于 2024-01-14 22:47:33">2024-01-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2024/01/14/HarmonyOS4.0%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%EF%BC%9A%E5%AE%89%E8%A3%85DevEco%20Studio%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E3%80%91/#post-comment"><span class="waline-comment-count" data-path="/2024/01/14/HarmonyOS4.0%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03%EF%BC%9A%E5%AE%89%E8%A3%85DevEco%20Studio%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E3%80%91/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">DevEco Studio
+
+HUAWEI DevEco Studio 是基于IntelliJ IDEA Community开源版本打造，为运行在HarmonyOS和OpenHarmony系统上的应用和服务（以下简称应用&#x2F;服务）提供一站式的开发平台。
+是面向全场景多设备，提供一站式的分布式应用开发平台，支持分布式多端开发、分布式多端调测、多端模拟仿真，全方位的质量与安全保障。
+
+
+
+特点
+高效智能代码编辑：支持ArkTS、JS、C&#x2F;C++等语言的代码高亮、代码智能补齐、代码错误检查、代码自动跳转、代码格式化、代码查找等功能，提升代码编写效率。更多详细信息，请参考编辑器使用技巧。
+低代码可视化开发：丰富的UI界面编辑能力，支持自由拖拽组件和可视化数据绑定，可快速预览效果，所见即所得；同时支持卡片的零代码开发，降低开发门槛和提升界面开发效率。更多详细信息，请参考使用低代码开发应用&#x2F;服务。
+多端双向实时预览：支持UI界面代码的双向预览、实时预览、动态预览、组件预览以及多端设备预览，便于快速查看代码运行效果。更多详细信息，请参考使用预览器预览应用&#x2F;服务界 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/07/26/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E7%AE%80%E6%98%93%E7%9A%84%E7%BF%BB%E8%AF%91%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%907%E3%80%91/" title="Python网络爬虫 _简易的翻译小程序【7】"><img class="post-bg" src="/img/cover/python.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python网络爬虫 _简易的翻译小程序【7】"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/26/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E7%AE%80%E6%98%93%E7%9A%84%E7%BF%BB%E8%AF%91%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%907%E3%80%91/" title="Python网络爬虫 _简易的翻译小程序【7】">Python网络爬虫 _简易的翻译小程序【7】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-26T03:03:11.000Z" title="发表于 2023-07-26 11:03:11">2023-07-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2023/07/26/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E7%AE%80%E6%98%93%E7%9A%84%E7%BF%BB%E8%AF%91%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%907%E3%80%91/#post-comment"><span class="waline-comment-count" data-path="/2023/07/26/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E7%AE%80%E6%98%93%E7%9A%84%E7%BF%BB%E8%AF%91%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%907%E3%80%91/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1.了解了URL封装和XPath解析后，也掌握了许多爬虫知识，是时候做个实战演练了。2.本期内容会讲到如何利用爬虫制作一个简易的翻译小程序。
+
+制作翻译小程序一. 实战对象
+先声明一下：本次实战案例是以学习为目的，不会有其他恶意行为，文章仅供参考。
+这次是利用爬虫制作小程序，那当然离不开网站了，本次我们会以，金山词霸为实战素材。
+
+二. 制作流程1. 英文翻译
+首先我们先打开金山词霸的官网页面。
+我们直接翻译两个单词，注意一下URL地址的变化，可以发现，，w&#x3D;后面的就是我们要翻译的中文，连续两次翻译都是只是改变了这一小部分，所以，我们就可以利用到这一发现。
+
+3. 我们打开编辑器，开始编写代码。
+
+我们新建一个Python文件，并导入必要的模块，requests和lxml。
+定义一个请求对象，并将链接复制到get方法内。注意，因为我们要利用到URL中的w&#x3D;,所以我们在这里面写个格式。为了能够得到服务器的响应，我们还需要写一个反爬虫，就是定义一下请求头的User-Agent，将参数传入到请求对象中。
+定义一个input用于word接收要查的单词。
+这样请求对象就定义 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/07/22/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_XPath%E8%A7%A3%E6%9E%90%E3%80%906%E3%80%91/" title="Python网络爬虫 _XPath解析【6】"><img class="post-bg" src="/img/cover/python.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python网络爬虫 _XPath解析【6】"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/22/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_XPath%E8%A7%A3%E6%9E%90%E3%80%906%E3%80%91/" title="Python网络爬虫 _XPath解析【6】">Python网络爬虫 _XPath解析【6】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-22T07:13:52.000Z" title="发表于 2023-07-22 15:13:52">2023-07-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2023/07/22/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_XPath%E8%A7%A3%E6%9E%90%E3%80%906%E3%80%91/#post-comment"><span class="waline-comment-count" data-path="/2023/07/22/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_XPath%E8%A7%A3%E6%9E%90%E3%80%906%E3%80%91/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">问题引入：
+前面我们可以通过HTTP Requests请求获取到网站的HTML源代码，但是仍没有得到我们想要的信息。 那怎么办呢，这时我们就需要通过代码解析，从复杂的源码中提取出我们想要的信息。
+
+爬虫解析器
+爬虫解析器用作于从复杂的网页代码中解析提取出我们想要的数据。如下图，通过解析我们可以从结构复杂的代码中提取出我们想要的。
+
+爬虫解析器有三大类，分别是正则表达式解析器，Bs解析器和Lxml解析器。其对于的解析方法如下：
+
+正则表达式解析：正则表达式(Regular Expression) 简称 ‘Re’ 是一种特殊的字符串模式,利用这些元字符可以从结构复杂的文本中简化，提取出匹配的内容，是最传统的爬虫解析方式。
+BeautifulSoup解析：用于从HTML和XML文件中提取数据。它能够解析HTML文档,从中提取出标签、属性、文本等内容,方便我们进行二次开发和数据分析。
+XPath解析：当前最为流行的解析方式，通过标签定位解析提取出目标信息。
+
+
+由于XPath相对其他解析方法具有解析精度高，速度快，和操作灵活的特点，所以我们才用XPath作为我们解析器去提取数据。
+
+
+什么是X ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/07/16/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E5%8F%8D%E7%88%AC%E8%99%AB%E3%80%904%E3%80%91/" title="Python网络爬虫 _反爬虫【4】"><img class="post-bg" src="/img/cover/python.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python网络爬虫 _反爬虫【4】"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/16/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E5%8F%8D%E7%88%AC%E8%99%AB%E3%80%904%E3%80%91/" title="Python网络爬虫 _反爬虫【4】">Python网络爬虫 _反爬虫【4】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-16T03:56:54.000Z" title="发表于 2023-07-16 11:56:54">2023-07-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2023/07/16/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E5%8F%8D%E7%88%AC%E8%99%AB%E3%80%904%E3%80%91/#post-comment"><span class="waline-comment-count" data-path="/2023/07/16/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E5%8F%8D%E7%88%AC%E8%99%AB%E3%80%904%E3%80%91/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+1.由于网络爬虫具有一定的弊端，使用网络爬虫可以悄无声息的从互联网上获取很多资源，包括一些付费，原创和不公开的资源。所以很多大型网站都采取了反爬虫机制，来抵御爬虫的不正当行为。   2.本次介绍了什么是反网络爬虫？，简单的爬虫伪装操作？以及如何应对网络爬虫？。
+
+什么是反网络爬虫？
+反爬虫：是指对扫描器中的网络爬虫环节进行反制，它会根据ip访问频率，浏览网页速度和User-Agent等参数来判断是否为网络爬虫，随后通过一些反网络爬虫机制来阻止或妨碍网络爬虫的正常爬取。以此达到网络爬虫恶意获取网站资源的效果。
+
+爬虫伪装1. 什么是爬虫伪装？
+爬虫伪装：指的是将爬虫伪装成其他工具，
+我们知道请求头中的User-Agent是用于告诉服务器请求是通过什么工具发出的（浏览器，程序，），以及工具对应的版本和类型是什么。
+现在大多网站，都会根据User-Agent的参数来判断请求是否为网络爬虫发出的，服务器都希望访问网站的用户，是浏览器发出的请求，而不是爬虫程序。因为爬虫本身就是一种程序，所以就会被反爬虫机制给阻止。
+我们只需要将User-Agent的参数更改一下即可。
+
+2. 反爬实例：
+豆瓣 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/07/14/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB_URL%E5%B0%81%E8%A3%85%E3%80%905%E3%80%91/" title="Python网络爬虫_URL封装【5】"><img class="post-bg" src="/img/cover/python.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python网络爬虫_URL封装【5】"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/14/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB_URL%E5%B0%81%E8%A3%85%E3%80%905%E3%80%91/" title="Python网络爬虫_URL封装【5】">Python网络爬虫_URL封装【5】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-14T03:06:29.000Z" title="发表于 2023-07-14 11:06:29">2023-07-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2023/07/14/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB_URL%E5%B0%81%E8%A3%85%E3%80%905%E3%80%91/#post-comment"><span class="waline-comment-count" data-path="/2023/07/14/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB_URL%E5%B0%81%E8%A3%85%E3%80%905%E3%80%91/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">为了达到便于管理的目的，大多网站会对网页的URL地址采取封装措施。
+URL封装
+在我们访问网站时，通常会看到不一样的网址，就如豆瓣电影的动作片排行榜的网页路径一样。并不是一个很层级形式的路径。
+这就是URL封装。
+
+3. 可以发现，URL路径中，从里面的问号开始往后就是封装的内容。
+4. 像URL路径这样的，一般以Json的形式存在于请求的Request Payload，内参数用于指定路径。准确来说应该是一种请求体。5. 我们打开检查查看Payload6. 可以发现，Payload参数完全对应着URL的后半部分。
+
+
+如果我们把这个Payload放入代码中拼接起来会咋样呢因为像这样的参数我们需要将它们写成字典再传入Params可选参数，即可。123456789101112131415import requests  # 导入请求库tou = &#123;    # 伪装浏览器    &quot;User-Agent&quot;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2023/07/13/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E5%8F%91%E9%80%81HTTP%E8%AF%B7%E6%B1%82%E3%80%903%E3%80%91/" title="Python网络爬虫_发送HTTP请求【3】"><img class="post-bg" src="/img/cover/python.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python网络爬虫_发送HTTP请求【3】"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/13/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E5%8F%91%E9%80%81HTTP%E8%AF%B7%E6%B1%82%E3%80%903%E3%80%91/" title="Python网络爬虫_发送HTTP请求【3】">Python网络爬虫_发送HTTP请求【3】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-13T07:32:10.000Z" title="发表于 2023-07-13 15:32:10">2023-07-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2023/07/13/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E5%8F%91%E9%80%81HTTP%E8%AF%B7%E6%B1%82%E3%80%903%E3%80%91/#post-comment"><span class="waline-comment-count" data-path="/2023/07/13/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%20_%E5%8F%91%E9%80%81HTTP%E8%AF%B7%E6%B1%82%E3%80%903%E3%80%91/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
+了解HTTP协议相关知识后，我们可以尝试利用Python发送一次HTTP请求。Request是Python的第三方库，用于构建和发送HTTP请求。
+
+安装Requests：
+因为是第三方库，所以我们需要用到命令行终端的pip来进行安装。
+打开终端，输入 pip install requests 再回车。
+当显示如图所示，则表示安装成功了。
+
+#安装成功：
+
+
+
+但是如果显示如下，则表示你已经安装过了Requests，不需要再进行安装了。
+
+#安装失败（重复）：
+
+
+打开该库后可以看到里面包含了很多方法模块，而我们待会就会用到里面的status_codes
+
+编写代码：1. 发送HTTP请求
+当Requests库安装好之后，就到了编写Python代码的环节了，新建一个py文本。
+导入Requests模块。因为爬虫的主要行为是爬取内容，所以我用GET请求方法，获取一个服务器对象。我们拿百度为例。get内写的是要获取的完整的URL。 注意：URL要带上http协议，加密协议带https。
+
+123import requests  # 导入模块send = requests.get(&#x2 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2023/07/11/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB_HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94%E3%80%902%E3%80%91/" title="Python网络爬虫_HTTP请求与响应【2】"><img class="post-bg" src="/img/cover/python.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python网络爬虫_HTTP请求与响应【2】"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/11/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB_HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94%E3%80%902%E3%80%91/" title="Python网络爬虫_HTTP请求与响应【2】">Python网络爬虫_HTTP请求与响应【2】</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-11T12:02:53.000Z" title="发表于 2023-07-11 20:02:53">2023-07-11</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-comments"></i><a href="/2023/07/11/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB_HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94%E3%80%902%E3%80%91/#post-comment"><span class="waline-comment-count" data-path="/2023/07/11/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB_HTTP%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94%E3%80%902%E3%80%91/"><i class="fa-solid fa-spinner fa-spin"></i></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">问题引入：
+网络爬虫爬取的对象的是Web，我们将它称之为服务端，而爬虫就是本地的客户端。那么要怎样才能使客户端与服务端建立连接并爬取数据呢？这时就需要利用HTTP了
+
+什么是HTTP?1.HTTP：超文本传输协议（Hypertext Transfer Protocol，简称：HTTP）它是一个简单的请求-响应协议，架构运行在TCP之上。这套协议定义了客户端可发送什么样的请求（Request）信号和服务器可返回什么样的响应（Response）。它的作用是规定www服务器与浏览器之间信息传递规范，是二者共同遵守的协议。
+2.当用户使用浏览器输入网址访问目标网站时，需要向网站服务器发送HTTP请求，通过发送请求即可从服务器获取页面内容的响应。但实际上服务器只会发送网页代码，我们所看到的页面效果是经过浏览器渲染而成的。
+
+请求类型：1.HTTP请求类型有八种：（GET、POST、HEAD、PUT、DELETE、OPTIONS、TRACE、CONNECT）2.但我们常用的只有两种：GET和POST。
+
+GET ： 用于获取数据，一般用于搜索排序和筛选之类的操作。
+POST ：用于将数据发送给服务 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/#content-inner">8</a><a class="extend next" rel="next" href="/page/8/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Almango</div><div class="author-info__description">天真永不消逝，浪漫至死不渝</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">75</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">44</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">25</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Almango"><i class="fab fa-github"></i><span>戳一下</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/almango" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=1830314643" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #74C0FC;"></i></a><a class="social-icon" href="https://space.bilibili.com/1278951656?spm_id_from=333.1007.0.0" target="_blank" title="Bilibili"><i class="fa-brands fa-bilibili" style="color: #74C0FC;"></i></a><a class="social-icon" href="https://outlook.live.com/mail/" target="_blank" title="Email"><i class="fa-regular fa-envelope" style="color: #FFD43B;"></i></a></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/10/05/Cpp%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%89%96%E6%9E%90%E5%BA%94%E7%94%A8/" title="C++数据结构_单链表的实例剖析与应用【6】"><img src="http://testingcf.jsdelivr.net/gh/Almango/Blog_imgbed@main/photos/post_cpp6_1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++数据结构_单链表的实例剖析与应用【6】"/></a><div class="content"><a class="title" href="/2024/10/05/Cpp%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84_%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%89%96%E6%9E%90%E5%BA%94%E7%94%A8/" title="C++数据结构_单链表的实例剖析与应用【6】">C++数据结构_单链表的实例剖析与应用【6】</a><time datetime="2024-10-05T04:45:21.000Z" title="发表于 2024-10-05 12:45:21">2024-10-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/03/Butterfly_%E4%B8%80%E5%9B%BE%E6%B5%81%E8%83%8C%E6%99%AF%E4%B8%8E%E9%A1%B5%E8%84%9A%E7%BE%8E%E5%8C%96/" title="Butterfly_一图流背景与页脚美化"><img src="/img/cover/mobo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Butterfly_一图流背景与页脚美化"/></a><div class="content"><a class="title" href="/2024/10/03/Butterfly_%E4%B8%80%E5%9B%BE%E6%B5%81%E8%83%8C%E6%99%AF%E4%B8%8E%E9%A1%B5%E8%84%9A%E7%BE%8E%E5%8C%96/" title="Butterfly_一图流背景与页脚美化">Butterfly_一图流背景与页脚美化</a><time datetime="2024-10-03T05:20:03.000Z" title="发表于 2024-10-03 13:20:03">2024-10-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/09/03/%E5%88%86%E4%BA%AB%E6%88%91%E5%9C%A8%E7%94%B5%E8%84%91%E5%86%85%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="分享我在电脑内的学习与开发环境"><img src="/img/cover/md.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="分享我在电脑内的学习与开发环境"/></a><div class="content"><a class="title" href="/2024/09/03/%E5%88%86%E4%BA%AB%E6%88%91%E5%9C%A8%E7%94%B5%E8%84%91%E5%86%85%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="分享我在电脑内的学习与开发环境">分享我在电脑内的学习与开发环境</a><time datetime="2024-09-03T06:46:51.000Z" title="发表于 2024-09-03 14:46:51">2024-09-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/29/%E7%BB%9D%E5%8C%BA%E9%9B%B6%E5%BC%80%E6%9C%8D%E8%87%B3%E4%BB%8A%E4%BD%93%E9%AA%8C%E9%97%B2%E8%B0%88/" title="绝区零开服至今体验闲谈"><img src="/img/cover/zzz.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="绝区零开服至今体验闲谈"/></a><div class="content"><a class="title" href="/2024/08/29/%E7%BB%9D%E5%8C%BA%E9%9B%B6%E5%BC%80%E6%9C%8D%E8%87%B3%E4%BB%8A%E4%BD%93%E9%AA%8C%E9%97%B2%E8%B0%88/" title="绝区零开服至今体验闲谈">绝区零开服至今体验闲谈</a><time datetime="2024-08-29T02:42:00.000Z" title="发表于 2024-08-29 10:42:00">2024-08-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/08/21/cpp%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E7%94%A8%E6%B3%95%E6%B5%85%E6%9E%90/" title="C++结构体的用法浅析【5】"><img src="/img/cover/cpp.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++结构体的用法浅析【5】"/></a><div class="content"><a class="title" href="/2024/08/21/cpp%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E7%94%A8%E6%B3%95%E6%B5%85%E6%9E%90/" title="C++结构体的用法浅析【5】">C++结构体的用法浅析【5】</a><time datetime="2024-08-21T03:27:20.000Z" title="发表于 2024-08-21 11:27:20">2024-08-21</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Adobe-Creative-Cloud/" style="font-size: 1.1em; color: #999">Adobe Creative Cloud</a> <a href="/tags/JS/" style="font-size: 1.19em; color: #999da1">JS</a> <a href="/tags/DIY/" style="font-size: 1.19em; color: #999da1">DIY</a> <a href="/tags/Linux/" style="font-size: 1.19em; color: #999da1">Linux</a> <a href="/tags/Office365/" style="font-size: 1.1em; color: #999">Office365</a> <a href="/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" style="font-size: 1.1em; color: #999">面向过程</a> <a href="/tags/2023/" style="font-size: 1.1em; color: #999">2023</a> <a href="/tags/%E7%BB%9D%E5%8C%BA%E9%9B%B6/" style="font-size: 1.1em; color: #999">绝区零</a> <a href="/tags/PicGo/" style="font-size: 1.1em; color: #999">PicGo</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.19em; color: #999da1">操作系统</a> <a href="/tags/%E5%8A%A8%E6%BC%AB/" style="font-size: 1.1em; color: #999">动漫</a> <a href="/tags/Socket/" style="font-size: 1.23em; color: #999ea6">Socket</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 1.5em; color: #99a9bf">开发工具</a> <a href="/tags/%E5%90%8D%E4%BA%BA%E4%BA%8B%E8%BF%B9/" style="font-size: 1.1em; color: #999">名人事迹</a> <a href="/tags/C/" style="font-size: 1.23em; color: #999ea6">C</a> <a href="/tags/Python/" style="font-size: 1.41em; color: #99a5b7">Python</a> <a href="/tags/Adobe-Photoshop/" style="font-size: 1.1em; color: #999">Adobe Photoshop</a> <a href="/tags/Blog/" style="font-size: 1.1em; color: #999">Blog</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%88%90%E9%95%BF/" style="font-size: 1.1em; color: #999">学习与成长</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 1.1em; color: #999">图床</a> <a href="/tags/%E5%AD%97%E4%BD%93/" style="font-size: 1.1em; color: #999">字体</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 1.23em; color: #999ea6">网络编程</a> <a href="/tags/%E5%BC%80%E6%BA%90/" style="font-size: 1.14em; color: #999b9d">开源</a> <a href="/tags/FydeOS/" style="font-size: 1.1em; color: #999">FydeOS</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 1.37em; color: #99a4b2">网络爬虫</a> <a href="/tags/MinGW/" style="font-size: 1.23em; color: #999ea6">MinGW</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 1.14em; color: #999b9d">美化</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 1.1em; color: #999">分享</a> <a href="/tags/%E7%BA%AA%E5%BF%B5%E6%97%A5/" style="font-size: 1.1em; color: #999">纪念日</a> <a href="/tags/%E7%B1%B3%E5%93%88%E6%B8%B8/" style="font-size: 1.1em; color: #999">米哈游</a> <a href="/tags/Hexo/" style="font-size: 1.28em; color: #99a0aa">Hexo</a> <a href="/tags/Algo/" style="font-size: 1.1em; color: #999">Algo</a> <a href="/tags/c/" style="font-size: 1.32em; color: #99a2ae">c++</a> <a href="/tags/Butterfly/" style="font-size: 1.1em; color: #999">Butterfly</a> <a href="/tags/HarmonyOS/" style="font-size: 1.1em; color: #999">HarmonyOS</a> <a href="/tags/C/" style="font-size: 1.46em; color: #99a7bb">C#</a> <a href="/tags/%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97/" style="font-size: 1.1em; color: #999">你的名字</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">算法</a> <a href="/tags/Fedora/" style="font-size: 1.1em; color: #999">Fedora</a> <a href="/tags/NET/" style="font-size: 1.46em; color: #99a7bb">.NET</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">十月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">九月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">八月 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">七月 2024</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">5</span></a></li></ul></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer-left"><div class="footer-title"><span>Almango | </span><span class="footer-copyright">&copy;2023 - 2024 By Almango</span></div><div class="footer-button"><a title="GitHub" target="_blank" rel="noopener" href="https://github.com/Almango"><i class="fab fa-github"></i></a><a title="微博" target="_blank" rel="noopener" href="https://weibo.com/u/7936064867"><i class="fab fa-weibo"></i></a><a title="bilibili" target="_blank" rel="noopener" href="https://space.bilibili.com/18247019?spm_id_from=333.1007.0.0"><i class="fab fa-bilibili"></i></a><a title="twitterb" target="_blank" rel="noopener" href="https://twitter.com/Receiver99xkk?t=UoMBRIY0a-csS_gUb9aIRg&amp;s=09"><i class="fa-brands fa-x-twitter"></i></a><a title="Email" target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f0%2f%3fstate%3d1%26redirectTo%3daHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwvMC8&amp;sdf=0"><i class="fa-solid fa-envelope"></i></a></div><div class="wordcount"></div><span>Almano已经写了 88.3k 字，</span><span>好像写完一本 鲁迅 的 《呐喊》 了啊</span></div><div id="footer-right"><div class="footer-totop"><i class="fas fa-chevron-up" onclick="scrollToTop()"></i></div><div class="footer-info"><p>使用Hexo框架 | 本站基于butterfly主题魔改</p><a title="萌ICP备号 20240146" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20240146"><img src="/img/footer_moe.png" alt="备案图标" style="height: 16px;margin-right: 3px;filter: grayscale(1);"/>萌ICP备号: 20240146号</a><a title="喵喵ICP备案: 20240008号" href="https://www.nyaicp.xyz/?id=20240008&quot; target=&quot;_blank&quot;">喵喵ICP备案: 20240008号</a></div><div class="footer-service"><a title="腾讯云" target="_blank" rel="noopener" href="https://cloud.tencent.com"><img alt="腾讯云" src="https://cdn.ichika.cc/typora/202211071552681.png!towebp"/></a><a title="51LA" target="_blank" rel="noopener" href="https://www.51.la"><img alt="51LA" src="https://cdn.ichika.cc/typora/202211071552427.png!towebp"/></a><a title="CC BY-NC-SA 4.0" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><img alt="CC BY-NC-SA 4.0" src="https://cdn.ichika.cc/typora/202211071552856.png!towebp"/></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.14.0-b3"></script><script src="/js/main.js?v=4.14.0-b3"></script><script src="/js/tw_cn.js?v=4.14.0-b3"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.35/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  async function loadWaline () {
+    try {
+      const eleGroup = document.querySelectorAll('#recent-posts .waline-comment-count')
+      const keyArray = Array.from(eleGroup).map(i => i.getAttribute('data-path'))
+
+      const res = await fetch(`https://www.almango.top/api/comment?type=count&url=${keyArray}`, { method: 'GET' })
+      const result = await res.json()
+      
+      result.data.forEach((count, index) => {
+        eleGroup[index].textContent = count
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  window.pjax ? loadWaline() : window.addEventListener('load', loadWaline)
+})()</script><script>window.typedJSFn = {
+  init: (str) => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, ))
+  },
+  run: (subtitleType) => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  }
+}
+btf.addGlobalFn('pjaxSend', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  if (true) {
+    typedJSFn.init(["Hello I'm Almango. Welcome to my blog👋👋。","天真永不消逝，浪漫至死不渝。","JUST DO IT !","芸芸众生，孰不爱生？爱生之极，进而爱群。","Quitters never win and winners never quit."])
+  } else {
+    document.getElementById("subtitle").textContent = "Hello I'm Almango. Welcome to my blog👋👋。"
+  }
+}
+typedJSFn.run(subtitleType)</script><script>(() => {
+  const runMermaid = (ele) => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from(ele).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+    
+    codeMermaidEle.forEach(ele => {
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.innerHTML = `<pre class="mermaid-src" hidden>${ele.textContent}</pre>`
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js').then(runMermaidFn)
+  }
+  
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script>window.addEventListener('load', () => {
+  const changeContent = content => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = async () => {
+    try {
+      const res = await fetch('https://www.almango.top/api/comment?type=recent&count=6', { method: 'GET' })
+      const result = await res.json()
+      const walineArray = result.data.map(e => {
+        return {
+          'content': changeContent(e.comment),
+          'avatar': e.avatar,
+          'nick': e.nick,
+          'url': e.url + '#' + e.objectId,
+          'date': e.time || e.insertedAt
+        }
+      })
+      btf.saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 10/(60*24))
+      generateHtml(walineArray)
+    } catch (err) {
+      console.error(err)
+      const $dom = document.querySelector('#card-newest-comments .aside-list')
+      $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+    }
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = btf.saveToLocal.get('waline-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  btf.addGlobalFn('pjaxComplete', newestCommentInit, 'waline_newestComment')
+})</script><script src="/live2d-widget-master/autoload.js"></script><script src="/js/custom.js"></script><script src="/js/fps.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.14.0-b3"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v3.8.2" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，默认线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，联通线路托管于Coding" title=""><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a><a class="github-badge" target="_blank" href="https://icp.gov.moe/?keyword=20240146" style="margin-inline:5px" data-title="萌ICP备 纯属萌友网站联萌！" title=""><img src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20240146-fe1384?style-flat&amp;logo=data:image/png;base64,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" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/07/19/随心日记/" alt=""><img width="48" height="48" src="img/cover/yz.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-07-19</span><a class="blog-slider__title" href="2024/07/19/随心日记/" alt="">随心日记</a><div class="blog-slider__text">这是一个记录生活的博客，来看看这些时间我都做了一些什么吧！</div><a class="blog-slider__button" href="2024/07/19/随心日记/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/08/16/cpp数组及其基本特征的浅层解读/" alt=""><img width="48" height="48" src="img/cover/cpp.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-08-16</span><a class="blog-slider__title" href="2024/08/16/cpp数组及其基本特征的浅层解读/" alt="">C++数组及其基本特征的浅层解读【4】</a><div class="blog-slider__text">C++指针与结构体的出生操作</div><a class="blog-slider__button" href="2024/08/16/cpp数组及其基本特征的浅层解读/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/10/03/Butterfly_一图流背景与页脚美化/" alt=""><img width="48" height="48" src="img/cover/mobo.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-10-03</span><a class="blog-slider__title" href="2024/10/03/Butterfly_一图流背景与页脚美化/" alt="">Butterfly_一图流背景与页脚美化</a><div class="blog-slider__text">将文章封面与背景于一体，让页脚显示更高档。</div><a class="blog-slider__button" href="2024/10/03/Butterfly_一图流背景与页脚美化/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2024/01/23/FydeOS17国产操作系统全过程安装/" alt=""><img width="48" height="48" src="img/cover/fydeos.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-01-23</span><a class="blog-slider__title" href="2024/01/23/FydeOS17国产操作系统全过程安装/" alt="">FydeOS17国产操作系统全过程安装【保姆级教程】</a><div class="blog-slider__text">基于Linux + Chromium Project国产操作系统开箱。</div><a class="blog-slider__button" href="2024/01/23/FydeOS17国产操作系统全过程安装/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = '/';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><!-- hexo injector body_end end --></body></html>
