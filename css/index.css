@@ -2252,7 +2252,6 @@ figure.highlight pre .javascript .function {
   -o-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  border: 1px dashed #666;
 maxWidth1200()
 }
 @media screen and (max-width: 600px) {
