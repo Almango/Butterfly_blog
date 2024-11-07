@@ -1383,7 +1383,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: Varela Round, sans-serif;
+  font-family: ZhuZiAWan, sans-serif;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   scroll-behavior: smooth;
@@ -5048,7 +5048,7 @@ maxWidth1200()
   top: calc(50% - 7px);
   left: 0;
   color: #eca100;
-  content: '\f863';
+  content: '\f185';
   line-height: 1;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
