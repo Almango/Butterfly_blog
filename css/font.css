@@ -2,9 +2,9 @@
   font-family: "iconfont"; /* Project id 4736490 */
   /* Color fonts */
   src: 
-       url('//at.alicdn.com/t/c/font_4736490_62elgfvxb5c.woff2?t=1730878534187') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4736490_62elgfvxb5c.woff?t=1730878534187') format('woff'),
-       url('//at.alicdn.com/t/c/font_4736490_62elgfvxb5c.ttf?t=1730878534187') format('truetype');
+       url('//at.alicdn.com/t/c/font_4736490_weqac76k7ae.woff2?t=1731078373956') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4736490_weqac76k7ae.woff?t=1731078373956') format('woff'),
+       url('//at.alicdn.com/t/c/font_4736490_weqac76k7ae.ttf?t=1731078373956') format('truetype');
 }
 
 .iconfont {
@@ -14,6 +14,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 .icon-github:before {
   content: "\e673";
@@ -55,10 +56,6 @@
   content: "\e668";
 }
 
-.icon-sharpicons_city-train:before {
-  content: "\e82b";
-}
-
 .icon-guidang:before {
   content: "\eca6";
 }
@@ -81,10 +78,6 @@
 
 .icon-python:before {
   content: "\e6f2";
-}
-
-.icon-sousuo:before {
-  content: "\e63b";
 }
 
 .icon-JavaScript:before {
@@ -110,6 +103,3 @@
 .icon-wenzhang:before {
   content: "\ecb3";
 }
-
-
-
