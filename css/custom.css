@@ -348,10 +348,3 @@ blockquote {
     border-radius: 8px;
 }
 
-
-@font-face {
-    font-family: 'Youshesha';
-    font-display: swap;
-    src: url('/font/zaozi.otf') ;
-}
-

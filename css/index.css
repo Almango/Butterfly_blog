@@ -1383,7 +1383,7 @@ body {
   background: var(--global-bg);
   color: var(--font-color);
   font-size: var(--global-font-size);
-  font-family: Youshesha, sans-serif;
+  font-family: LXGW WenKai Mono Screen, sans-serif;
   line-height: 2;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   scroll-behavior: smooth;
@@ -1676,7 +1676,7 @@ figure.highlight pre .javascript .function {
 #article-container pre,
 #article-container code {
   font-size: 15px;
-  font-family: JetBrains Mono !important;
+  font-family: Consolas !important;
   border-radius: 6px;
 }
 #article-container code {
