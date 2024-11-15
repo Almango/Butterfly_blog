@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>我的世界Java版本搭建本地服务器：实现开服与联机自由</title>
+      <link href="/2024/11/15/Minecraft%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8_%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%BA%BA%E8%81%94%E6%9C%BA%E8%87%AA%E7%94%B1/"/>
+      <url>/2024/11/15/Minecraft%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8_%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%BA%BA%E8%81%94%E6%9C%BA%E8%87%AA%E7%94%B1/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>最近因为某些原因，我和兄弟临时转MC玩了，开始是考虑了一下冈易我的世界，但想到冈易那代理mc环境跟一坨一样，甚至高质量的光影全要钱，干脆不如玩纯净版的MC，于是就想着自己搭建一个本地服务器。虽然第一次有点麻烦，但我还是将全过程记录了下来。</p></blockquote><p>本期介绍的是Java版我的世界本地服务器和实现多人联机的实现过程：<code>仅供参考</code></p><h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><blockquote><ul><li>Java 11或以上版本1</li><li>Minecraft Edition 任意版本</li></ul></blockquote><h2 id="部署Server核心"><a href="#部署Server核心" class="headerlink" title="部署Server核心"></a>部署Server核心</h2><blockquote><p>服务器核心文件是一个JAR文件，内部的文件按下列结构组织，是用于运行服务器的软件。在这个软件中，有几个核心要素是关键的，它们共同构成了服务器的基础架构。以下是我的世界服务器核心的主要组成部分</p></blockquote><p>常用的Minecraft服务器核心有以下几种：</p><ul><li><strong>Bukkit</strong></li><li><strong>Paper</strong></li><li><strong>Velocity</strong></li><li><strong>Spigot</strong></li></ul><p>这里我就以<code>Spigot</code>为例，搭建一个本地服务器。</p><blockquote><p>注意：Spigot版本不能低于Minecraft游戏版本。</p></blockquote><p>1 . 首先下载Server核心：Getbukkit官网网站：<a href="https://getbukkit.org/download/spigot/">https://getbukkit.org/download/spigot/</a></p><ul><li>备用地址1：<a href="https://www.fastmirror.net/#/home">https://www.fastmirror.net/#/home</a></li><li>备用地址2：<a href="https://sync.mcsl.com.cn/">https://sync.mcsl.com.cn/</a></li></ul><p>2 . 创建一个目录用于存放服务器文件，并将下载好的<code>核心文件.jar</code>放进去（目录名称不能存在中文或特殊字符）</p><p>3 . 在该目录新建一个文本文档，并进行编辑：</p><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">java -Xmx2g -Xms1g -jar Spigot-<span class="number">1</span>.<span class="number">20</span>.<span class="number">4</span>-<span class="number">4074</span>.jar</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure><blockquote><p>Spigot-1.20.4-4074.jar：服务器核心文件名称<br>Xmx2g：申请本地的最大~最小内存为2G（可自定义<code>&gt;= 1G</code>）</p></blockquote><p>4 . 保存后，将其名称及后缀名改为<code>Launch.bat</code></p><p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_mcserver_1.png"></p><p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_mcserver_3.png"></p><p>5 .双击运行<code>Launch.bat</code><br>6 . 这个时候，会弹出终端并初始化服务器所需的配置文件。</p><p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_mcserver_2.png"></p><p>7 . 当提示“<code>请按任意键继续...</code>”时，退出终端。<br>8 . 这个时候目录就已经生成了一个名为<code>eula.text</code>的文本文档。我们将其打开，并将代码<code>eula</code>的值改为<code>true</code>。<br>9 . 重新打开<code>Launch.bat</code>，等待加载。<br>10 . 当出现如下图所示，则说明服务器核心已配置完成，可以正常使用。</p><p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_mcserver_4.png"></p><h2 id="加入服务器"><a href="#加入服务器" class="headerlink" title="加入服务器"></a>加入服务器</h2><p>1 . 我们打开游戏，点击多人游戏，并添加服务器地址：<code>127.0.0.1:25565</code>，这个时候可以看到添加后的服务器状态是正常的，随即进入服务器。<br>2 . 这里有两个点要注意：</p><blockquote><ul><li>如果你是盗版用户，默认是无法加入游戏的，进去时会弹出：<code>验证用户名失败！</code>，需要将服务器配置文件<code>server.properties</code>中的代码<code>online-mode</code>值设置为<code>false</code></li><li>服务器IP默认端口是<code>25565</code></li><li>服务器核心会默认选择你的最新存档作为地图。</li></ul></blockquote><p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_mcserver_5.png"></p><h2 id="互联网多人联机"><a href="#互联网多人联机" class="headerlink" title="互联网多人联机"></a>互联网多人联机</h2><blockquote><p>此时的状态，只有局域网内才能联机，广域网的玩家是无法看到的。这个时候我们可以用到<code>内网穿透</code>来实现互联网范围的多人联机。</p></blockquote><p>1 . 注册一个樱花内网穿透账号：<a href="https://www.natfrp.com/?page=panel&module=download">SAKURA FRP</a><br>2 . 登录官网，随机在官网打开控制面板，点击导航栏的用户页面中的<code>重设用户密钥</code>，并将新的密钥复制下来。<br>3 . 下载并安装樱花内网穿透软件：<a href="https://www.natfrp.com/tunnel/download">前往官网下载</a></p><p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_mcserver_6.png"></p><p>4 . 启动<code>SakuraFrp启动器</code>，并在设置中登录自己的密钥。<br>5 . 点击侧边栏的隧道。并创建一个新的隧道。<br>6 . 在创建面板中：</p><ul><li>节点你可以选择一个离你比较近的<code>节点</code></li><li>隧道类型选择：<code>TCP隧道</code>，</li><li>随后输入隧道名（可自定义）</li><li>主机IP为：<code>127.0.0.1</code>，</li><li>端口为MC服务器的端口<code>25565</code>，</li></ul><p>7 . 其他的可以默认不填，随即创建隧道。<br>8 . 随后你就可以在隧道面板中启动隧道了，启动后打开日志，下图所示的链接就是服务器的IP地址了。</p><p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_mcserver_7.png"></p><p>9 . 下次启动服务器就一直会用到这串地址，广域网的玩家也可以通过这个IP来找到你的服务器并一起游戏。</p><p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_mcserver_8.png"></p><h2 id="自定义服务器配置文件"><a href="#自定义服务器配置文件" class="headerlink" title="自定义服务器配置文件"></a>自定义服务器配置文件</h2><blockquote><p>在服务器核心目录，我们可以找到名为：<code>server.properties</code>的文件，这个就是服务器的配置文件，我们可以通过修改其参数来调整服务器，例如：游戏模式，最大玩家数，游戏难度，服务器IP和端口等…</p></blockquote><p>1 . <code>online-mode</code>：正版用户验证（建议关闭）</p><p>2 . <code>server-port</code>：服务器端口（不建议修改）</p><p>3 . <code>max-players</code>：最大玩家数</p><p>4 . <code>enable-command-block</code>：是否启用命令方块</p><p>5 . <code>motd</code>：服务器描述</p><p>Server.properties各参数详解可参考：<a href="https://zh.minecraft.wiki/w/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F?variant=zh">Minecraft Wiki</a> 或者 <a href="https://spigotmc-cn.netlify.app/">Spigot中文开发指南</a></p><blockquote><p>必须保证在服务器关闭的前提下修改配置参数，重新启动后才会生效。</p></blockquote><h2 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h2><p>1 . 我们可以直接通过服务器核心来使用指令。<br>2 . 例如</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 赋予玩家管理员权限</span></span><br><span class="line">op [玩家名]</span><br><span class="line"><span class="comment"># 踢出玩家</span></span><br><span class="line">kick [玩家名]</span><br><span class="line"><span class="comment"># 死亡不掉落</span></span><br><span class="line">gamerule keepinventory <span class="literal">true</span></span><br></pre></td></tr></table></figure><p>3 . 你也可以通过<code>help</code>来查看指令集<br>4 . 当然，如果你是服主，可以给自己赋予管理员权限，这样你就可以在游戏内使用指令了。</p><blockquote><p>至于如何添加mod和地图，这个后续会再次补充…</p></blockquote><blockquote><p>到这里服务器就已经配置完成啦，快去和小伙伴们一起冒险吧！</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 游戏 </category>
+          
+          <category> Minecraft </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开服 </tag>
+            
+            <tag> MC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Unity2D开发记录_游戏场景搭建【1】</title>
       <link href="/2024/11/09/Unity2D%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95_%E6%B8%B8%E6%88%8F%E5%9C%BA%E6%99%AF%E6%90%AD%E5%BB%BA%E3%80%901%E3%80%91/"/>
       <url>/2024/11/09/Unity2D%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95_%E6%B8%B8%E6%88%8F%E5%9C%BA%E6%99%AF%E6%90%AD%E5%BB%BA%E3%80%901%E3%80%91/</url>
@@ -69,7 +98,9 @@
       
       <categories>
           
-          <category> CS2 </category>
+          <category> 游戏 </category>
+          
+          <category> Minecraft </category>
           
       </categories>
       
