@@ -1,4 +1,16 @@
+/*主页卡片圆角*/
+#recent-posts .recent-post-item
+{
+    border: #ef50a8 22px;
+    border-radius: 12px;
+    
+}
 
+/*文章背景圆角*/
+.cardHover, .layout > div:first-child:not(.nc), #recent-posts .recent-post-item, #article-container .shuoshuo-item, #aside-content .card-widget, .layout .pagination > *:not(.space) 
+{
+    border-radius: 12px;
+}
 
 /*文章标题图标大小*/
 #content-inner.layout h1::before {
