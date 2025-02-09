@@ -1,0 +1,545 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Butterfly主题魔改日志 | Hexo</title><meta name="author" content="Almango"><meta name="copyright" content="Almango"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="插件包12345678.├── hexo-wordcount└── hexo-history-calendar└── hexo-butterfly-footer-beautify└── hexo-generator-search└── hexo-butterfly-swiper└── live2d-widget......    hexo-wordcount（字数统计）:  Githubhexo-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Butterfly主题魔改日志">
+<meta property="og:url" content="http://example.com/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="插件包12345678.├── hexo-wordcount└── hexo-history-calendar└── hexo-butterfly-footer-beautify└── hexo-generator-search└── hexo-butterfly-swiper└── live2d-widget......    hexo-wordcount（字数统计）:  Githubhexo-">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Head.png">
+<meta property="article:published_time" content="2024-07-18T07:55:41.000Z">
+<meta property="article:modified_time" content="2025-02-08T12:54:32.000Z">
+<meta property="article:author" content="Almango">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="DIY">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/Head.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Butterfly主题魔改日志",
+  "url": "http://example.com/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/",
+  "image": "http://example.com/img/Head.png",
+  "datePublished": "2024-07-18T07:55:41.000Z",
+  "dateModified": "2025-02-08T12:54:32.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Almango",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.font.im/css?family=Didact+Gothic|Fredoka+One" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Butterfly主题魔改日志',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Light/result.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background: var();"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Head.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-pencil-01"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw iconfont icon-zhifeiji-copy"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://snake.timeline.ink/latest"><i class="fa-fw iconfont icon-bizhishezhi"></i><span> 拾光壁纸</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-wenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw iconfont icon-fuwurizhi"></i><span> 日志</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-icon-shishi"></i><span> 笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw iconfont icon-csharp"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/cpp/"><i class="fa-fw iconfont icon-cpp"></i><span> C++</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw iconfont icon-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"><i class="fa-fw iconfont icon-JavaScript"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shejiaotubiao-26"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on"><i class="fa-fw iconfont icon-ditie"></i><span> 开往</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shoucang"></i><span> 我的</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/album/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw iconfont icon-backpack"></i><span> 装备</span></a></li><li><a class="site-page child" href="/terminal/"><i class="fa-fw iconfont icon-terminalzhongduan"></i><span> 终端</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">Butterfly主题魔改日志</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-pencil-01"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw iconfont icon-zhifeiji-copy"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://snake.timeline.ink/latest"><i class="fa-fw iconfont icon-bizhishezhi"></i><span> 拾光壁纸</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-wenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw iconfont icon-fuwurizhi"></i><span> 日志</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-icon-shishi"></i><span> 笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw iconfont icon-csharp"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/cpp/"><i class="fa-fw iconfont icon-cpp"></i><span> C++</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw iconfont icon-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"><i class="fa-fw iconfont icon-JavaScript"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shejiaotubiao-26"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on"><i class="fa-fw iconfont icon-ditie"></i><span> 开往</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shoucang"></i><span> 我的</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/album/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw iconfont icon-backpack"></i><span> 装备</span></a></li><li><a class="site-page child" href="/terminal/"><i class="fa-fw iconfont icon-terminalzhongduan"></i><span> 终端</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Butterfly主题魔改日志</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-07-18T07:55:41.000Z" title="发表于 2024-07-18 15:55:41">2024-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-08T12:54:32.000Z" title="更新于 2025-02-08 20:54:32">2025-02-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%AD%94%E6%94%B9/">魔改</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h2 id="插件包"><a href="#插件包" class="headerlink" title="插件包"></a>插件包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── hexo-wordcount</span><br><span class="line">└── hexo-history-calendar</span><br><span class="line">└── hexo-butterfly-footer-beautify</span><br><span class="line">└── hexo-generator-search</span><br><span class="line">└── hexo-butterfly-swiper</span><br><span class="line">└── live2d-widget</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>hexo-wordcount（字数统计）:  <a target="_blank" rel="noopener" href="https://github.com/willin/hexo-wordcount">Github</a><br>hexo-history-calendar（往年今事）: <a target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/npm/hexo-history-calendar">jsdelivr</a><br>hexo-butterfly-footer-beautify（页脚美化）:  <a target="_blank" rel="noopener" href="https://github.com/Akilarlxh/hexo-butterfly-footer-beautify">Github</a><br>hexo-generator-search（本地搜索）:  <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search">Github</a><br>hexo-butterfly-swiper(置顶文章轮播卡片) : <a target="_blank" rel="noopener" href="https://github.com/Akilarlxh/hexo-butterfly-swiper">Github</a><br>live2d-widget(Lived2d看板娘) : <a target="_blank" rel="noopener" href="https://github.com/stevenjoezhang/live2d-widget">Github</a></p>
+</blockquote>
+<h2 id="2024-Butterfly更新日志"><a href="#2024-Butterfly更新日志" class="headerlink" title="2024 Butterfly更新日志"></a>2024 Butterfly更新日志</h2><div class="timeline "><div class='timeline-item headline'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月</p>
+</div>
+        </div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月17日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 添加 侧边栏的那年今日插件</p>
+<p>2 . 添加 搜索功能插件</p>
+<p>3 . 添加 友人帐</p>
+<p>4 . 添加 页脚徽标插件</p>
+<p>5 . 添加 页面加载动画Pace</p>
+<p>6 . 修改 侧边栏最近文章图片边框样式为：圆角</p>
+<p>7 . 修改 侧边栏头像样式为：禁用动画</p>
+<p>8 . 修改 侧边栏名称字体样式为：Comic Sanc MS</p>
+<p>9 .  修改 文章中图片样式边框为：圆角</p>
+<p>10 . 修改 友人帐鼠标悬停动画样式为：立体效果</p>
+<p>11 . 修改 友人帐极速导航边框样式：青色虚线</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月18日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1.添加 标签页面</p>
+<p>2.添加 分类页面</p>
+<p>3.添加 社交小图标</p>
+<p>4.添加 页面背景</p>
+<p>5.启动文章超时提醒</p>
+<p>6.启动 繁体简体转换功能</p>
+<p>7.添加 左上角LOGO及顶部标题字体样式</p>
+<p>8.修改 侧边栏分类&amp;归档的悬停动画样式为：立体效果</p>
+<p>6.修改 侧边栏戳一下按钮悬停动画样式为：立体效果</p>
+<p>7.修改 侧边栏标签悬停动画样式为：扩张效果</p>
+<p>8.修改 侧边栏社交小图标样式为：禁过渡动画</p>
+<p>9.修改 滚动条颜色样式为：热粉</p>
+<p>10.修改 侧边栏&amp;导航栏小图标</p>
+<p>11.修改 标签&amp;归档%分类页面为：不显示顶部封面</p>
+<p>12.修改 侧边栏目录悬停动画样式为：立体效果</p>
+<p>13.修改 文章代码块边框样式为：圆角</p>
+<p>14.修改 页脚背景样式为：透明渐变</p>
+<p>15.关闭 顶部封面（默认为若没有封面，则不留白）</p>
+<p>16.修改 文章代码块边框样式为：圆角</p>
+<p>17.修改 文章上下篇图形边框样式为：圆角</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月18日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1.添加 关于我页面</p>
+<p>1.修改 导航栏边框样式为：圆角 <code>source/css/custom.css</code></p>
+<p>2.修改 导航栏位置：居中</p>
+<p>3.修改 背景为：svg格式</p>
+<p>4.启用 代码高度限制</p>
+<p>5 . 更换 全局字体为：Varela Round </p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月20日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 修复 友人帐圆角不匹配问题</p>
+<p>2 . 更换 主页顶部壁纸</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月21日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 调整 主页文章列表边框高度及内容大小<br>2 . 修复 导航栏字体大小不对等问题</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月22日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 新增 萌ICP备案徽标</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月24日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 引入 Jetbrains Mono字体作为代码字体</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月25日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 移除 页脚渐变效果</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月28日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 移除 导航栏工具栏<br>2 . 添加 导航栏算法<br>3 . 优化 图片和插图采用chinajsdelivrCDN通道加速。</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月31日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 开启 不显示顶部图<code>disable_top_img</code>，<code>index_img</code><br>2 . 关闭 主页封面<br>3 . 关闭 侧边栏分类卡片</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>7月31日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 开启 文章标题图标并调整样式</p>
+</div>
+      </div></div>
+
+<div class="timeline green"><div class='timeline-item headline'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>8月</p>
+</div>
+        </div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>8月4日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 添加 相册页面</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>8月6日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 添加 Waline评论系统</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>8月7日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 添加 文章字数统计插件<br>2 . 新增 友链极速导航站点<br>3 . 修改 侧边栏评论者头像边框样式：圆角</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>8月11日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 修改 导航栏边框圆角为100px</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>8月12日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1  .添加 CDN(jsDelivr)提升页面加载速度<br>2 . 添加 页面加载动画</p>
+</div>
+      </div></div>
+
+<div class="timeline  pink"><div class='timeline-item headline'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>10月</p>
+</div>
+        </div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>10月2日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 添加 live2d看板娘</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>10月3日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 更新 文章顶部封面为 一图流背景<br>2 . 更新 页脚美化<br>3 . 调整 主页文章卡片长度<br>4 . 调整 所有卡片及其文章背板背景为 半透明色<br>5 . 添加 置顶文章轮播卡片<br>6 . 调整 主页顶部轮播标题大小及位置<br>7 . 关闭 顶部视频</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>10月3日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 新增 FPS帧率检测显示功能</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>10月25日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . <b style="color:red">Butterfly主题已更新至5.1.0</b><br>2 . 修复引用块圆角边框</p>
+</div>
+      </div></div>
+
+
+
+
+
+<div class="timeline  orange"><div class='timeline-item headline'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月</p>
+</div>
+        </div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月2日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 更新友联失联名单，友联边框及其申请信息注意点</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月6日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 更新 主页标题及轮播文字 为荧光文字效果<br>2 . 更新 导航栏图标 为阿里云矢图标<br>3 . 更新 侧边栏个人资料卡背景 为渐变色 </p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月7日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 更新 全局字体为 筑紫A丸子<br>2 . 更改 全局字体为 造字工房悦圆演示版常规体<br>3 . 关闭 主页轮播文章插件</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月7日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><blockquote>
+<p>由于使用了过渡动画，导致页面变得异常卡顿，所以我选择使用静态渐变色</p>
+</blockquote>
+<p>1 . 关闭 主页标题及轮播文字的荧光文字效果<br>2 . 关闭 侧边栏个人资料卡及版权卡背景的 动态（动画）渐变色</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月7日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 使用<strong>中文网字计划</strong>CDN引入字体<br>2 . 更改 全局字体为 霞鹜文楷</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月12日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 更新 博客背景图使用 随机壁纸API接口 (<a target="_blank" rel="noopener" href="https://api.miaomc.cn/image/">API来源</a>)<br>2 . 更换 live2d看板娘 图源cdnPath API接口 (<a target="_blank" rel="noopener" href="https://akilar.top/posts/5b8f515f/">API来源</a>)</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月16日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 新增 页面 我的设备<br>2 . 重构 页面 我的装备<br>3 . 更新 导航栏顺序</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月22日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 新增 日志时间轴<br>2 . 调整 魔改日志 为时间轴结构</p>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>11月23日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 调整 文章背景卡与主页卡片圆角度为:12px</p>
+</div>
+      </div></div>
+
+
+
+<h2 id="2025-Butterfly更新日志"><a href="#2025-Butterfly更新日志" class="headerlink" title="2025 Butterfly更新日志"></a>2025 Butterfly更新日志</h2><div class="timeline "><div class='timeline-item headline'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>2月</p>
+</div>
+        </div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>2月7日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><blockquote>
+<p>好久没更新过blog了，看了一下，打算重新魔改一个样式，顺便升级一下BF的版本。其实，我也不知道改成什么样，只是觉得越简约越好，后来，在萌ICP看到了博主：<a target="_blank" rel="noopener" href="https://noionion.top/">贰猹の小窝</a>,由此产生了灵感，所以后面的样式走向，也基本和该博主的差不多……<br>1 . <b style="color:red">Butterfly主题已更新至5.3.2</b><br>2 . 关闭侧边栏<br>3 . 全局背景改为：渐变色<br>4 . 导航栏居中化<br>5 . 替换大部分矢量图标<br>6 . 导航栏背景关闭半透明状</p>
+</blockquote>
+</div>
+      </div><div class='timeline-item'>
+        <div class='timeline-item-title'>
+          <div class='item-circle'><p>2月8日</p>
+</div>
+        </div>
+        <div class='timeline-item-content'><p>1 . 单独设置文章右侧的目录卡</p>
+</div>
+      </div></div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Almango</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/">http://example.com/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a><a class="post-meta__tags" href="/tags/DIY/">DIY</a></div><div class="post-share"><div class="social-share" data-image="/img/Head.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/07/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AFedora%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E9%83%A8%E7%BD%B2%E3%80%902%E3%80%91/" title="Linux学习笔记：Fedora操作系统的介绍与部署【2】"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Linux学习笔记：Fedora操作系统的介绍与部署【2】</div></div><div class="info-2"><div class="info-item-1"> 什么是Fedora？ Fedora是一种基于Linux的操作系统，由社区支持和开发。Fedora是一个免费开源的操作系统，提供了最新的软件和技术，适用于开发人员、系统管理员和普通用户。Fedora采用RPM软件包管理系统，并使用GNOME桌面环境作为默认桌面。Fedora还提供了许多工具和应用程序，如编程语言、开发工具、办公软件等，使用户能够轻松地完成各种任务。  Fedora是由Fedora项目社区开发、红帽公司赞助，目标是创建一套新颖、多功能并且自由（开放源代码）的操作系统。Fedora是商业化的Red Hat Enterprise Linux发行版的上游源码。  Fedora是一个以社区为基础的Linux操作系统，由Fedora Project社区维护，并由红帽（Red...</div></div></div></a><a class="pagination-related" href="/2024/07/19/Butterfly%E7%BE%8E%E5%8C%96%E6%96%B9%E6%A1%88%E3%80%90%E5%9F%BA%E7%A1%80%E3%80%91/" title="Butterfly美化方案【基础】"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Butterfly美化方案【基础】</div></div><div class="info-2"><div class="info-item-1">页脚徽标Footer_Beautify徽标插件1 . 安装插件Hexo-butterfly-footer-beautify  npm install hexo-butterfly-footer-beautify --save  2 . 将下列代码插入到主题配置文件_config.yml中即可使用 12345678910111213141516171819202122232425262728293031323334353637383940414243444546# footer_beautify# 页脚计时器：[Native JS Timer](https://akilar.top/posts/b941af/)# 页脚徽标：[Add Github Badge](https://akilar.top/posts/e87ad7f8/)footer_beautify:  enable:    timer: true # 计时器开关    bdage: true # 徽标开关  priority: 5 #过滤器优先权  enable_page: all # 应用页面  exclude:...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/07/19/Butterfly%E7%BE%8E%E5%8C%96%E6%96%B9%E6%A1%88%E3%80%90%E5%9F%BA%E7%A1%80%E3%80%91/" title="Butterfly美化方案【基础】"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-19</div><div class="info-item-2">Butterfly美化方案【基础】</div></div><div class="info-2"><div class="info-item-1">页脚徽标Footer_Beautify徽标插件1 . 安装插件Hexo-butterfly-footer-beautify  npm install hexo-butterfly-footer-beautify --save  2 . 将下列代码插入到主题配置文件_config.yml中即可使用 12345678910111213141516171819202122232425262728293031323334353637383940414243444546# footer_beautify# 页脚计时器：[Native JS Timer](https://akilar.top/posts/b941af/)# 页脚徽标：[Add Github Badge](https://akilar.top/posts/e87ad7f8/)footer_beautify:  enable:    timer: true # 计时器开关    bdage: true # 徽标开关  priority: 5 #过滤器优先权  enable_page: all # 应用页面  exclude:...</div></div></div></a><a class="pagination-related" href="/2024/07/19/Butterfly%E7%BE%8E%E5%8C%96%E6%96%B9%E6%A1%88%E3%80%90%E8%BF%9B%E9%98%B6%E3%80%91/" title="Butterfly美化方案【进阶】"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-19</div><div class="info-item-2">Butterfly美化方案【进阶】</div></div><div class="info-2"><div class="info-item-1">页面标签页面1 . 创建标签页面 1hexo new page tags  2 . 将index.md的内容修改下面内容： 123456---title: 标签date: 2024-07-18 10:14:31type: &quot;tags&quot;top_img: false---  分类页面1 . 创建分类页面 1hexo new page categories  2 . 将index.md的内容修改下面内容： 123456---title: 分类date: 2024-07-18 10:14:10type: &quot;categories&quot;top_img: false---  友链页面1 . 创建友链页面 1hexo new page link  2 . 将index.md的内容修改下面内容： 12345678910111213141516---date: 2024-07-17 14:59:33type: &#x27;link&#x27;top_img: false---## ✨申请友链&gt;欢迎交换友链，您可以按照以下格式在评论区打出申请信息###...</div></div></div></a><a class="pagination-related" href="/2024/10/03/Butterfly_%E4%B8%80%E5%9B%BE%E6%B5%81%E8%83%8C%E6%99%AF%E4%B8%8E%E9%A1%B5%E8%84%9A%E7%BE%8E%E5%8C%96/" title="Butterfly_一图流背景与页脚美化"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-03</div><div class="info-item-2">Butterfly_一图流背景与页脚美化</div></div><div class="info-2"><div class="info-item-1">一图流背景1.一图流背景简单来说就将背景作为文章的顶部封面，相当于把原有的封面去除了，这样看起来会更加清爽。2.本站参考了博主闪闪发光的 ZZZ：Hexo+Butterfly 主题一图流背景与顶部图修改 效果图： 代码1.将主题文件中的index_img:设为transparent透明。2.在background:处设置自己喜欢的背景。 12345678910# The banner image of home pageindex_img: transparent————————————————————————————————————————————# If the banner of page not setting, it will show the top_imgdefault_top_img: false         # The banner image of archive pagearchive_img: false......# Website Background (設置網站背景)background: url(/img/background/g.jpg)...</div></div></div></a><a class="pagination-related" href="/2024/01/23/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%88%90%E5%8A%9F%E5%95%A6/" title="我的个人博客发布成功啦!!!"><img class="cover" src="/img/cover/hexo.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-23</div><div class="info-item-2">我的个人博客发布成功啦!!!</div></div><div class="info-2"><div class="info-item-1">我的个人博客发布成功啦！！！  这大概是两年前的是吧？我曾一直希望自己能搭建并上传自己的个人博客，但是受服务器和虚拟机的影响（太贵了，时间久了，对于我们学生党来说，确实是不小的开支） 此外，还受到框架因素的影响，原本是采用原生的H5+CSS+JavaScript搭建博客的，后来有去WordPress，都不太行（这样的网站框架只能上传到虚拟机中）最后选择了Hexo框架：纯静态框架（因为GitHub和Gitee听说是可以免费托管静态网站的） 时长两年半，我最最终还是在Gitee中发布了。（真的花了我不少时间，尤其是在高三段）    网站框架采用：Hexo （Static...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">插件包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2024-Butterfly%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">2024 Butterfly更新日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2025-Butterfly%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="toc-number">3.</span> <span class="toc-text">2025 Butterfly更新日志</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div id="footer-left"><div class="footer-title"><span>Hexo | </span><span class="footer-copyright">&copy;2023 - 2025 By Almango</span></div><div class="footer-button"><a title="GitHub" target="_blank" rel="noopener" href="https://github.com/Almango"><i class="fab fa-github"></i></a><a title="微博" target="_blank" rel="noopener" href="https://weibo.com/u/7936064867"><i class="fab fa-weibo"></i></a><a title="bilibili" target="_blank" rel="noopener" href="https://space.bilibili.com/1278951656?spm_id_from=333.1007.0.0"><i class="fab fa-bilibili"></i></a><a title="twitterb" target="_blank" rel="noopener" href="https://twitter.com/Receiver99xkk?t=UoMBRIY0a-csS_gUb9aIRg&amp;s=09"><i class="fa-brands fa-x-twitter"></i></a><a title="Email" target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f0%2f%3fstate%3d1%26redirectTo%3daHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwvMC8&amp;sdf=0"><i class="fa-solid fa-envelope"></i></a></div><div class="wordcount"></div><span>Almano已经写了 95.2k 字，</span><span>好像写完一本 林海音 的 《城南旧事》 了啊</span></div><div id="footer-right"><div class="footer-totop"><i class="fas fa-chevron-up" onclick="scrollToTop()"></i></div><div class="footer-info"><p>使用Hexo框架 | 本站基于butterfly主题魔改</p><a title="萌ICP备号 20240146" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20240146"><img src="/img/footer_moe.png" alt="备案图标" style="height: 16px;margin-right: 3px;filter: grayscale(1);"/>萌ICP备号: 20240146号</a></div><div class="footer-service"><a title="腾讯云" target="_blank" rel="noopener" href="https://cloud.tencent.com"><img alt="腾讯云" src="https://cdn.ichika.cc/typora/202211071552681.png!towebp"/></a><a title="51LA" target="_blank" rel="noopener" href="https://www.51.la"><img alt="51LA" src="https://cdn.ichika.cc/typora/202211071552427.png!towebp"/></a><a title="CC BY-NC-SA 4.0" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><img alt="CC BY-NC-SA 4.0" src="https://cdn.ichika.cc/typora/202211071552856.png!towebp"/></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://www.almango.top/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v3.8.2" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，默认线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，联通线路托管于Coding" title=""><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a><a class="github-badge" target="_blank" href="https://icp.gov.moe/?keyword=20240146" style="margin-inline:5px" data-title="萌ICP备 纯属萌友网站联萌！" title=""><img src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20240146-fe1384?style-flat&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+nhxg7wAAByxJREFUSInl1nlwVeUZx/HPuTckkD0kQFiCEEIUlNUCAqKoSBV1AIt1ikpVLFbLONjWGUXbmWrbweJMy7hUxbbTjsUq6KCiWEvr0kE2WVK2QCKBJCxJgEASsienfxwqMob+3Zm+f93z3vM+32f5vc9z+H9bwVcfOp/YQ+1prhhEZS1VDQzqQ1MjiQmIC5Liwm3lBWpqFimrulb/7A/067vM2IsOBZ2h8MhJQW6KMDNVsKeaizKEyUlsKueqgWJ39AMJF3QpDCNYr1SaEig/lWNX2Z1h6dH5/lVyGdVIZFf7MHo9bEfh9rCg/+8NyHlN77QTsnpQ0i2y08VK+BosfhbW0cHxqmSfFd9qW+l9Pi+5WltFdGTsOBbO5dJcdh3lN5+xff0Y2zuelXjRsyYUrjOu4BVJaavlpbWIJRBLOM+J81O95AAnTtM9vNHGknut3zdT48FutJE3koWTuG4oSXH+VsInX3B9IdcVUNfCuv08t4GjO6NspOa3BNcOXx1eOugVHQnrTMkTuyWrC/BjRZO9uPYTpw7HhTWkXcLd45l9GblpHD7NWzt5ZTMXZ/OdkTy+lvR07rmcmWffq6pn9W5e/oymfcT6kJbXHiydMyVYkL/x66n+ZMcctQfjhgxl6UIGZ3Ooltd2RIZqjqKRS0ew9cFIA1cO5urlLHuPZWsZPJiZw7gqn0VT2HCIR9+jvCQhfHPrLGyE2Hng2roBxHnmJoZnc9drbD3I6QaaWkjpSVoeu4+x5XB05qMDqCenHz37UHmcFRv54ZuMeoYrB/L0DPRgZ0WfrsXVKzPX3nYykrn3dUZl8+Q0Qox/gc/L6ZlKzxQefo+UROpa6Z4VCedkPd8YyJYHI3u5T/HAShZNQxsXZfR3pCtwRW066VEeOuIUVUf77+9jTw2pycTOJml7Je1t9EgiI5X2jkgyze1fCSSdtjhBiJCkpKyuI+5oTdAtkTCgVwrbKsl8ko6QjO40tZ67EpkpdIbRf20dkbPpPTjdwsSX6I5dJYy4hoQAaZQdDy4A1iEMI613T6LtBPXJpPakrjGqc1Y6CTFq62htJp5KRwPJKWSkU3WKiiPEEqO6xgM6oZmctJhDXYH7Z59xuCyKpK6R26ZE+ys3MWYoN1/Mc5uoqmbEQJ6fTc/ulJ3i/lUc+YIfzeKhKzjVHN31A3XRHddKSrf6/6DOV3VTcw1hVKfkxOhaPDAe1UwfwmNTqT1Drxw+nE9xNXetIjHG2vnoxoT+rNrN2Of58Rp6JZ+ldKes5kjX4G7dKuikpoERfaltYnQ/DOSS3hEAFk9lXQkLnmf7Ib65lPJT3HU1+46Tm8rYvgzKYVA2h+vQIMjvewHwdSN20MiOSmZczO4a1hSzYi77T7CiiPF5JMTZexjJ5OagkwNV9M+MnJ09nKU3smgyQ3PYWoEO4fUjii4QceJmevJuMeP6csUAln4atcbSGoqOUpjD30uZNwnpHNtN3lC+NZa1xeT34pGVTJ3PL9+Ohs6GQ8gVtHZs6VLVwZhBReGwoXvt3THM/hP0SWVnCR8f4PMjkffjB/DQS8waxpHFfFgaaeHZDRRtJn0yP5tF31ymFVJ2nN27GD66KBzca2/XEWdkUpD3Fmd4tYj0FMS54Q9UnuaDUv6yE/24ewWP/DU6N/d1fvousYEs28DyLVEvGDOAt/egmSkXv2VYn3NBfpXbua6J8hMFFvy2RHsL+57gmX+w/AN651PfEDWQzLRI+afqIqOxFDJT6Rbn9Bmad3PnTH5wIxOXkJTWGiz57hCDsyqDWVldRNzeyOh+paaPfpFKnvqQX88iZwDVx0lLJqUHbe3EkZ1Odm+yUqK2GHYKmhvIG8fyeTz9IY5x67jnFPapdPDkl6jzwEF9IDjZJlgwfbG+o2u8+g4rd7D/UYI41TXnevV5K4j2q6uESckUP8rvNrH6fUH/sRXB9AlPONMSDZ8uazwoi56JjEyvdftV88jinhf4uIzmJRQOoOYgja0RKAiIBZxpjvZH5tP0c97axcLlyBXOuWZemJTYFFbUCU+1dl3j8PGSyFhnJ7EkYcWh7/njqpep5xfzWTyZZ7dEg73xOJKiGqf3YenNLBjLTz7i539COg/OvSOYO2GFo/VRG0Zwe0YX4Ns3R7NXSCxBeM8IthXfZvGf3xCWc/kkXvg2vVP4YB/rDzC1gGlDo+50/xvs2khKPrNnzAzmTH5HbzR0fkkKro93Ab5vx9kfaGgT3lLA5EyWbRpoTdHbSreOppGJV/PwlRTksK+aZz5l6z+RLBgxaau5k2cJelTKzmRQMq0d51J8UxL+23d1TDTcj7WQllZu4YwxDo+eZc22X9mwd6gN65GIFmQzampxcMOoR1xeuMbpVoqromsXdG3+wmCiekNtfSSmiUNWu2zgap+WjlZW8X11TeNkpWwICvNfCm8u3Cmxg4PN0VdmEJw7/7+0/g32RaqCbhRecAAAAABJRU5ErkJggg==" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><!-- hexo injector body_end end --></body></html>

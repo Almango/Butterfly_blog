@@ -1,0 +1,548 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo | Hexo</title><meta name="author" content="Almango"><meta name="copyright" content="Almango"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="✨申请友链 欢迎交换友链，您可以按照以下格式在评论区打出申请信息  注意☑️若后期您的站点无法访问，这里会自动将其列入失联名单中。☑️针对部分存在资源加密的站点，尽可能在申请信息后面添加一个siteshot: 截图链接，以便我们获取到站点的首页 1234- name: Almango  link:  https:&#x2F;&#x2F;www.almango.cn&#x2F;  avatar: https:&#x2F;&#x2F;www.alma">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/link/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="✨申请友链 欢迎交换友链，您可以按照以下格式在评论区打出申请信息  注意☑️若后期您的站点无法访问，这里会自动将其列入失联名单中。☑️针对部分存在资源加密的站点，尽可能在申请信息后面添加一个siteshot: 截图链接，以便我们获取到站点的首页 1234- name: Almango  link:  https:&#x2F;&#x2F;www.almango.cn&#x2F;  avatar: https:&#x2F;&#x2F;www.alma">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Head.png">
+<meta property="article:published_time" content="2024-07-17T06:59:33.000Z">
+<meta property="article:modified_time" content="2024-11-06T04:53:48.000Z">
+<meta property="article:author" content="Almango">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/Head.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/link/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.font.im/css?family=Didact+Gothic|Fredoka+One" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'page'
+}</script><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Light/result.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background: var();"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Head.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-pencil-01"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw iconfont icon-zhifeiji-copy"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://snake.timeline.ink/latest"><i class="fa-fw iconfont icon-bizhishezhi"></i><span> 拾光壁纸</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-wenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw iconfont icon-fuwurizhi"></i><span> 日志</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-icon-shishi"></i><span> 笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw iconfont icon-csharp"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/cpp/"><i class="fa-fw iconfont icon-cpp"></i><span> C++</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw iconfont icon-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"><i class="fa-fw iconfont icon-JavaScript"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shejiaotubiao-26"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on"><i class="fa-fw iconfont icon-ditie"></i><span> 开往</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shoucang"></i><span> 我的</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/album/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw iconfont icon-backpack"></i><span> 装备</span></a></li><li><a class="site-page child" href="/terminal/"><i class="fa-fw iconfont icon-terminalzhongduan"></i><span> 终端</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="page type-link" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-pencil-01"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw iconfont icon-zhifeiji-copy"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://snake.timeline.ink/latest"><i class="fa-fw iconfont icon-bizhishezhi"></i><span> 拾光壁纸</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-wenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw iconfont icon-fuwurizhi"></i><span> 日志</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-icon-shishi"></i><span> 笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw iconfont icon-csharp"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/cpp/"><i class="fa-fw iconfont icon-cpp"></i><span> C++</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw iconfont icon-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"><i class="fa-fw iconfont icon-JavaScript"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shejiaotubiao-26"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on"><i class="fa-fw iconfont icon-ditie"></i><span> 开往</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shoucang"></i><span> 我的</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/album/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw iconfont icon-backpack"></i><span> 装备</span></a></li><li><a class="site-page child" href="/terminal/"><i class="fa-fw iconfont icon-terminalzhongduan"></i><span> 终端</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><h1 class="title-seo">Hexo</h1></header><main class="layout" id="content-inner"><div id="page"><div class="container" id="article-container"><div class="flink"><h2 id="😘友人帐"><a href="#😘友人帐" class="headerlink" title="😘友人帐"></a>😘友人帐</h2> <div class="flink-list">
+  <div class="flink-list-item">
+    <a href="https://butterfly.js.org/" title="Jerry" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://butterfly.js.org/img/avatar.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Jerry" />
+      </div>
+      <div class="flink-item-name">Jerry</div>
+      <div class="flink-item-desc" title="A Simple and Card UI Design theme for Hexo">A Simple and Card UI Design theme for Hexo</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://blog.zhheo.com/" title="张洪Heo" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://bu.dusays.com/2022/12/28/63ac2812183aa.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="张洪Heo" />
+      </div>
+      <div class="flink-item-name">张洪Heo</div>
+      <div class="flink-item-desc" title="分享设计与科技生活">分享设计与科技生活</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://akilar.top/" title="Akilarの糖果屋" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://npm.elemecdn.com/akilar-friends@latest/avatar/akilar.top.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Akilarの糖果屋" />
+      </div>
+      <div class="flink-item-name">Akilarの糖果屋</div>
+      <div class="flink-item-desc" title="欢迎光临糖果屋">欢迎光临糖果屋</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://saop.cc" title="定の栈" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://saop.cc/avatar.webp" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="定の栈" />
+      </div>
+      <div class="flink-item-name">定の栈</div>
+      <div class="flink-item-desc" title="LINK START!">LINK START!</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://gywlg.cn" title="gywlg" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://gywlg.cn/file/1723907992249.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="gywlg" />
+      </div>
+      <div class="flink-item-name">gywlg</div>
+      <div class="flink-item-desc" title="一个珍藏故事与探讨智慧的地方">一个珍藏故事与探讨智慧的地方</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://ming-e.space" title="WuWu" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://ming-e.space/images/1.webp" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="WuWu" />
+      </div>
+      <div class="flink-item-name">WuWu</div>
+      <div class="flink-item-desc" title="车万人万岁">车万人万岁</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://blog.linux-qitong.top/" title="青稚の空间" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://blog.linux-qitong.top/img/avatar.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="青稚の空间" />
+      </div>
+      <div class="flink-item-name">青稚の空间</div>
+      <div class="flink-item-desc" title="越努力，越幸运.">越努力，越幸运.</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://blog.revincx.icu/" title="Revincx" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.jsdelivr.net/gh/Revincx/blog-assets@master/images/avatar.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Revincx" />
+      </div>
+      <div class="flink-item-name">Revincx</div>
+      <div class="flink-item-desc" title="可爱就是正义~">可爱就是正义~</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.kimtoli.com/" title="卿以君歌" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.kimtoli.com/Blog/blog_tx.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卿以君歌" />
+      </div>
+      <div class="flink-item-name">卿以君歌</div>
+      <div class="flink-item-desc" title="幻术的世界有什么不好？">幻术的世界有什么不好？</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://blog.luoaicheng.cn/" title="懒觉猫先生" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://blog.luoaicheng.cn/img/logo.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="懒觉猫先生" />
+      </div>
+      <div class="flink-item-name">懒觉猫先生</div>
+      <div class="flink-item-desc" title="睡觉睡觉，睡觉睡觉，喵喵">睡觉睡觉，睡觉睡觉，喵喵</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="http://itstarqeem.space" title="Qeem" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://pic.imgdb.cn/item/64c65629a9eb352efd93a379.webp" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Qeem" />
+      </div>
+      <div class="flink-item-name">Qeem</div>
+      <div class="flink-item-desc" title="阿巴阿巴阿巴..">阿巴阿巴阿巴..</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://blog.yuuka.top/" title="三玖の博客" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://q1.qlogo.cn/g?b=qq&nk=1973323029&s=100" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="三玖の博客" />
+      </div>
+      <div class="flink-item-name">三玖の博客</div>
+      <div class="flink-item-desc" title="Forgive or Forget.">Forgive or Forget.</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://youxianyu.cn/" title="YOUXIANYU" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://www.youxianyu.cn/img/c.c.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="YOUXIANYU" />
+      </div>
+      <div class="flink-item-name">YOUXIANYU</div>
+      <div class="flink-item-desc" title="知不足而奋进，望远山而力行 ❤">知不足而奋进，望远山而力行 ❤</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://lizhic.cn/" title="篱芷" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://www.lizhic.cn/img/head.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="篱芷" />
+      </div>
+      <div class="flink-item-name">篱芷</div>
+      <div class="flink-item-desc" title="糖人炎">糖人炎</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.hydsb0.com" title="探人间" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://bu.dusays.com/2023/07/10/64abbf448d530.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="探人间" />
+      </div>
+      <div class="flink-item-name">探人间</div>
+      <div class="flink-item-desc" title="努力吃上更贵的雪糕！">努力吃上更贵的雪糕！</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://blog.imsyy.top/" title="無名小栈" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://pic.imgdb.cn/item/65bc52b0871b83018a06699d.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="無名小栈" />
+      </div>
+      <div class="flink-item-name">無名小栈</div>
+      <div class="flink-item-desc" title="undefined">undefined</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://blog.lxb.icu/" title="李小白" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://q1.qlogo.cn/g?b=qq&nk=648226460&s=640" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="李小白" />
+      </div>
+      <div class="flink-item-name">李小白</div>
+      <div class="flink-item-desc" title="风共舞，随心而行">风共舞，随心而行</div>
+    </a>
+  </div></div><h2 id="❌失联名单"><a href="#❌失联名单" class="headerlink" title="❌失联名单"></a>❌失联名单</h2> <div class="flink-list">
+  <div class="flink-list-item">
+    <a href="https://happylee.cn" title="Lee" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://happylee.cn/img/avatar.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Lee" />
+      </div>
+      <div class="flink-item-name">Lee</div>
+      <div class="flink-item-desc" title="内心丰盈者，独行也如众">内心丰盈者，独行也如众</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.naokuo.top/" title="Naokuo" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://cdn.cbd.int/naokuo-blog/img/about/avatar-512x512.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Naokuo" />
+      </div>
+      <div class="flink-item-name">Naokuo</div>
+      <div class="flink-item-desc" title="请给我来亿碗三鲜面">请给我来亿碗三鲜面</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.chacks.top/" title="Chacks" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://bu.dusays.com/2024/07/09/668d4448c1982.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Chacks" />
+      </div>
+      <div class="flink-item-name">Chacks</div>
+      <div class="flink-item-desc" title="持光逐梦，照亮星途">持光逐梦，照亮星途</div>
+    </a>
+  </div></div><h2 id="🎯极速导航"><a href="#🎯极速导航" class="headerlink" title="🎯极速导航"></a>🎯极速导航</h2> <div class="flink-list">
+  <div class="flink-list-item">
+    <a href="https://markdown.devtool.tech/app" title="码途编辑器" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://markdown.devtool.tech/icon.svg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="码途编辑器" />
+      </div>
+      <div class="flink-item-name">码途编辑器</div>
+      <div class="flink-item-desc" title="适合开发者写博客的编辑器">适合开发者写博客的编辑器</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://github.com/" title="GitHub" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://github.githubassets.com/favicons/favicon.svg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="GitHub" />
+      </div>
+      <div class="flink-item-name">GitHub</div>
+      <div class="flink-item-desc" title="Let’s build from here · GitHub">Let’s build from here · GitHub</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://waline.js.org/" title="Waline" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://waline.js.org/logo.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Waline" />
+      </div>
+      <div class="flink-item-name">Waline</div>
+      <div class="flink-item-desc" title="一款简洁、安全的评论系统。">一款简洁、安全的评论系统。</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.rainyun.com/" title="雨云" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://www.rainyun.com/img/icons/safari-pinned-tab.svg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="雨云" />
+      </div>
+      <div class="flink-item-name">雨云</div>
+      <div class="flink-item-desc" title="老一代云服务提供商">老一代云服务提供商</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://123apps.com/cn/" title="123APPS" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://123apps.com/static/i/v3/apple-touch-icon.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="123APPS" />
+      </div>
+      <div class="flink-item-name">123APPS</div>
+      <div class="flink-item-desc" title="一个集成了许多且免费高质量的在线工具平台">一个集成了许多且免费高质量的在线工具平台</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://tophix.com/zh-cn/" title="TOPHIX" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://tophix.com/assets/images/logo.svg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="TOPHIX" />
+      </div>
+      <div class="flink-item-name">TOPHIX</div>
+      <div class="flink-item-desc" title="TOPHIX, 让一切变得简单">TOPHIX, 让一切变得简单</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://bz.zzzmh.cn/index" title="极简壁纸" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://bz.zzzmh.cn/img/icons/favicon-32x32.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="极简壁纸" />
+      </div>
+      <div class="flink-item-name">极简壁纸</div>
+      <div class="flink-item-desc" title="由个人维护的壁纸类小站">由个人维护的壁纸类小站</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://snake.timeline.ink/latest" title="拾光壁纸" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://snake.timeline.ink/static/img/favicon-196x196.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="拾光壁纸" />
+      </div>
+      <div class="flink-item-name">拾光壁纸</div>
+      <div class="flink-item-desc" title="「拾光」是一个干净、舒适、流畅的桌面壁纸应用&网站。">「拾光」是一个干净、舒适、流畅的桌面壁纸应用&网站。</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://htmlcolorcodes.com/zh/" title="HTML颜色代码" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://htmlcolorcodes.com/assets/images/favicon.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="HTML颜色代码" />
+      </div>
+      <div class="flink-item-name">HTML颜色代码</div>
+      <div class="flink-item-desc" title="RGB，HTML颜色代码选择器">RGB，HTML颜色代码选择器</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://w3cschool.cn/" title="W3CSCHOOL" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://7n.w3cschool.cn/statics/images/favicon.ico?v=2.2" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="W3CSCHOOL" />
+      </div>
+      <div class="flink-item-name">W3CSCHOOL</div>
+      <div class="flink-item-desc" title="随时随地学编程。">随时随地学编程。</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.lddgo.net/image/round-image" title="圆角生成器" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://www.lddgo.net/img/icon.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="圆角生成器" />
+      </div>
+      <div class="flink-item-name">圆角生成器</div>
+      <div class="flink-item-desc" title="在线圆角图片生成">在线圆角图片生成</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://tophix.com/zh-cn/color/color-picker" title="TOPHIX取色器" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://tophix.com/assets/images/logo.svg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="TOPHIX取色器" />
+      </div>
+      <div class="flink-item-name">TOPHIX取色器</div>
+      <div class="flink-item-desc" title="提取、识别和选择颜色。">提取、识别和选择颜色。</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://www.tboxn.com/" title="Tbox导航" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://tboxn.com/wp-content/uploads/2022/03/cropped-tboxlogo512.png" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Tbox导航" />
+      </div>
+      <div class="flink-item-name">Tbox导航</div>
+      <div class="flink-item-desc" title="只为让你更快找到合适工具，为你更高效的工作！">只为让你更快找到合适工具，为你更高效的工作！</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://freecompress.com/zh-cn/compress-image" title="Compress-image" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://freecompress.com/images/image-logo.webp" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="Compress-image" />
+      </div>
+      <div class="flink-item-name">Compress-image</div>
+      <div class="flink-item-desc" title="一个完全免费的在线图像压缩工具">一个完全免费的在线图像压缩工具</div>
+    </a>
+  </div>
+  <div class="flink-list-item">
+    <a href="https://chinese-font.netlify.app/zh-cn/" title="中文网字计划" target="_blank">
+      <div class="flink-item-icon">
+        <img class="no-lightbox" src="https://chinese-font.netlify.app/favicon.ico" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="中文网字计划" />
+      </div>
+      <div class="flink-item-name">中文网字计划</div>
+      <div class="flink-item-desc" title="一套开源的、全方位的、全场景的 Web 字体解决方案。">一套开源的、全方位的、全场景的 Web 字体解决方案。</div>
+    </a>
+  </div></div><h2 id="✨申请友链"><a href="#✨申请友链" class="headerlink" title="✨申请友链"></a>✨申请友链</h2><blockquote>
+<p>欢迎交换友链，您可以按照以下格式在评论区打出申请信息</p>
+</blockquote>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>☑️若后期您的站点无法访问，这里会自动将其列入失联名单中。<br>☑️针对部分存在资源加密的站点，尽可能在申请信息后面添加一个<code>siteshot: </code>截图链接，以便我们获取到站点的首页</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- name: Almango</span><br><span class="line">  link:  https:<span class="comment">//www.almango.cn/</span></span><br><span class="line">  avatar: https:<span class="comment">//www.almango.cn/img/favicon.png</span></span><br><span class="line">  descr: 天真永不消逝，浪漫至死不渝。</span><br></pre></td></tr></table></figure>
+
+
+
+</div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div id="footer-left"><div class="footer-title"><span>Hexo | </span><span class="footer-copyright">&copy;2023 - 2025 By Almango</span></div><div class="footer-button"><a title="GitHub" target="_blank" rel="noopener" href="https://github.com/Almango"><i class="fab fa-github"></i></a><a title="微博" target="_blank" rel="noopener" href="https://weibo.com/u/7936064867"><i class="fab fa-weibo"></i></a><a title="bilibili" target="_blank" rel="noopener" href="https://space.bilibili.com/1278951656?spm_id_from=333.1007.0.0"><i class="fab fa-bilibili"></i></a><a title="twitterb" target="_blank" rel="noopener" href="https://twitter.com/Receiver99xkk?t=UoMBRIY0a-csS_gUb9aIRg&amp;s=09"><i class="fa-brands fa-x-twitter"></i></a><a title="Email" target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f0%2f%3fstate%3d1%26redirectTo%3daHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwvMC8&amp;sdf=0"><i class="fa-solid fa-envelope"></i></a></div><div class="wordcount"></div><span>Almano已经写了 95.2k 字，</span><span>好像写完一本 林海音 的 《城南旧事》 了啊</span></div><div id="footer-right"><div class="footer-totop"><i class="fas fa-chevron-up" onclick="scrollToTop()"></i></div><div class="footer-info"><p>使用Hexo框架 | 本站基于butterfly主题魔改</p><a title="萌ICP备号 20240146" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20240146"><img src="/img/footer_moe.png" alt="备案图标" style="height: 16px;margin-right: 3px;filter: grayscale(1);"/>萌ICP备号: 20240146号</a></div><div class="footer-service"><a title="腾讯云" target="_blank" rel="noopener" href="https://cloud.tencent.com"><img alt="腾讯云" src="https://cdn.ichika.cc/typora/202211071552681.png!towebp"/></a><a title="51LA" target="_blank" rel="noopener" href="https://www.51.la"><img alt="51LA" src="https://cdn.ichika.cc/typora/202211071552427.png!towebp"/></a><a title="CC BY-NC-SA 4.0" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><img alt="CC BY-NC-SA 4.0" src="https://cdn.ichika.cc/typora/202211071552856.png!towebp"/></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://www.almango.top/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v3.8.2" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，默认线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，联通线路托管于Coding" title=""><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a><a class="github-badge" target="_blank" href="https://icp.gov.moe/?keyword=20240146" style="margin-inline:5px" data-title="萌ICP备 纯属萌友网站联萌！" title=""><img src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20240146-fe1384?style-flat&amp;logo=data:image/png;base64,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" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><!-- hexo injector body_end end --></body></html>

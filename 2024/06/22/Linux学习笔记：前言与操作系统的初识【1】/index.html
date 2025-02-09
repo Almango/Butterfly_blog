@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux学习笔记：前言与操作系统的初识【1】 | Hexo</title><meta name="author" content="Almango"><meta name="copyright" content="Almango"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言为什么学习Linux 作为当下最流行的操作系统之一，学会如何使用和操作Linux操作系统也就是每位计算机学者的看家必备技能了。 其次呢，本人受Linux的创始人林纳斯的影响太深了，觉得这个人太了不起了，而且人家大学里就自研开发出了Linux，所以我也想尝试一下学习Linux。 我对每个操作系统的UI和功能都非常痴迷，甚至会花很多时间来美化系统桌面，如果哪天我能按照自己的想法开发出一款定制的操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习笔记：前言与操作系统的初识【1】">
+<meta property="og:url" content="http://example.com/2024/06/22/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%89%8D%E8%A8%80%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%9D%E8%AF%86%E3%80%901%E3%80%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言为什么学习Linux 作为当下最流行的操作系统之一，学会如何使用和操作Linux操作系统也就是每位计算机学者的看家必备技能了。 其次呢，本人受Linux的创始人林纳斯的影响太深了，觉得这个人太了不起了，而且人家大学里就自研开发出了Linux，所以我也想尝试一下学习Linux。 我对每个操作系统的UI和功能都非常痴迷，甚至会花很多时间来美化系统桌面，如果哪天我能按照自己的想法开发出一款定制的操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/cover/Linux.jpg">
+<meta property="article:published_time" content="2024-06-22T05:26:20.000Z">
+<meta property="article:modified_time" content="2025-02-08T06:40:46.000Z">
+<meta property="article:author" content="Almango">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="开源">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/cover/Linux.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux学习笔记：前言与操作系统的初识【1】",
+  "url": "http://example.com/2024/06/22/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%89%8D%E8%A8%80%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%9D%E8%AF%86%E3%80%901%E3%80%91/",
+  "image": "http://example.com/img/cover/Linux.jpg",
+  "datePublished": "2024-06-22T05:26:20.000Z",
+  "dateModified": "2025-02-08T06:40:46.000Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Almango",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/06/22/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%89%8D%E8%A8%80%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%9D%E8%AF%86%E3%80%901%E3%80%91/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><link rel="stylesheet" href="https://fonts.font.im/css?family=Didact+Gothic|Fredoka+One" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux学习笔记：前言与操作系统的初识【1】',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/font.css"><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Light/result.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background: var();"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Head.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-pencil-01"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw iconfont icon-zhifeiji-copy"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://snake.timeline.ink/latest"><i class="fa-fw iconfont icon-bizhishezhi"></i><span> 拾光壁纸</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-wenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw iconfont icon-fuwurizhi"></i><span> 日志</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-icon-shishi"></i><span> 笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw iconfont icon-csharp"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/cpp/"><i class="fa-fw iconfont icon-cpp"></i><span> C++</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw iconfont icon-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"><i class="fa-fw iconfont icon-JavaScript"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shejiaotubiao-26"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on"><i class="fa-fw iconfont icon-ditie"></i><span> 开往</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shoucang"></i><span> 我的</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/album/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw iconfont icon-backpack"></i><span> 装备</span></a></li><li><a class="site-page child" href="/terminal/"><i class="fa-fw iconfont icon-terminalzhongduan"></i><span> 终端</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">Linux学习笔记：前言与操作系统的初识【1】</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-pencil-01"></i><span> 工具</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.feijipan.com"><i class="fa-fw iconfont icon-zhifeiji-copy"></i><span> 小飞机网盘</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://snake.timeline.ink/latest"><i class="fa-fw iconfont icon-bizhishezhi"></i><span> 拾光壁纸</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-wenzhang"></i><span> 文章</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw iconfont icon-guidang"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-biaoqian"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-fenlei"></i><span> 分类</span></a></li><li><a class="site-page child" href="/2024/07/18/Butterfly%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E6%97%A5%E5%BF%97/"><i class="fa-fw iconfont icon-fuwurizhi"></i><span> 日志</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-icon-shishi"></i><span> 笔记</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CSharp/"><i class="fa-fw iconfont icon-csharp"></i><span> C#</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/cpp/"><i class="fa-fw iconfont icon-cpp"></i><span> C++</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Python/"><i class="fa-fw iconfont icon-python"></i><span> Python</span></a></li><li><a class="site-page child" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/JavaScript/"><i class="fa-fw iconfont icon-JavaScript"></i><span> JavaScript</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shejiaotubiao-26"></i><span> 社交</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-lianjie"></i><span> 友人帐</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://travel.moe/go.html?travel=on"><i class="fa-fw iconfont icon-ditie"></i><span> 开往</span></a></li></ul></div><div class="menus_item"><span class="site-page group hide"><i class="fa-fw iconfont icon-shoucang"></i><span> 我的</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/album/"><i class="fa-fw iconfont icon-xiangce"></i><span> 相册</span></a></li><li><a class="site-page child" href="/equipment/"><i class="fa-fw iconfont icon-backpack"></i><span> 装备</span></a></li><li><a class="site-page child" href="/terminal/"><i class="fa-fw iconfont icon-terminalzhongduan"></i><span> 终端</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-guanyu"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Linux学习笔记：前言与操作系统的初识【1】</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-22T05:26:20.000Z" title="发表于 2024-06-22 13:26:20">2024-06-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-08T06:40:46.000Z" title="更新于 2025-02-08 14:40:46">2025-02-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h3 id="为什么学习Linux"><a href="#为什么学习Linux" class="headerlink" title="为什么学习Linux"></a>为什么学习Linux</h3><ol>
+<li>作为当下最流行的操作系统之一，学会如何使用和操作Linux操作系统也就是每位计算机学者的看家必备技能了。</li>
+<li>其次呢，本人受Linux的创始人林纳斯的影响太深了，觉得这个人太了不起了，而且人家大学里就自研开发出了Linux，所以我也想尝试一下学习Linux。</li>
+<li>我对每个操作系统的UI和功能都非常痴迷，甚至会花很多时间来美化系统桌面，如果哪天我能按照自己的想法开发出一款定制的操作系统那可太棒了，所以呢，开发一款操作系统也是我毕生的梦想（<strong>虽然这个梦想实则遥远，可以说是根本不可能</strong>）</li>
+<li>对于Linux，我猜想到了大学也还是要学的，所以趁高考毕业后可以好好学一下，提前巩固，到了大学会更加轻松一点。</li>
+</ol>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><ol>
+<li>虽然说，对于普通人来讲，Linux学起来会特别难，但这个世界上没有什么东西天生是人能学会的，我还是相信林纳斯所说过的一句话：“创造操作系统，就是去创造一个所有应用程序赖以运行的基础环境。从根本上来说，就是在制定规则：什么可以接受，什么可以做，什么不可以做。事实上，所有的程序都是在制定规则，只不过操作系统是在制定最根本的规则。”，是的，我只会认为我是在学习和遵循这么一种规则，但事成之后，我们可以打破这个规则。</li>
+<li>我想，这个世界应该没有什么事情让我比学习计算机技术知识更专注的了吧？（除了游戏）</li>
+<li>时间会证明一切的，当我的博客中的Linux学习笔记达到了20篇以上，我相信，那就是成功的象征。</li>
+</ol>
+<p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_linux1_1.png" alt="在这里插入图片描述"></p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h3 id="什么是操作系统？"><a href="#什么是操作系统？" class="headerlink" title="什么是操作系统？"></a>什么是操作系统？</h3><ol>
+<li><strong>操作系统</strong>（英文：Operating System；简称：OS）是一种内置的程序，用来协作计算机的各种硬件，以与用户进行交互。常见的操作系统有Windows，macOS 和 Linux。</li>
+<li>根据运行的环境，操作系统可以分为桌面操作系统，手机操作系统，服务器操作系统，嵌入式操作系统等。 [12]</li>
+<li>操作系统是人与计算机之间的接口。 [14]</li>
+<li>操作系统属于特殊类的计算机软件，它负责管理计算机硬件资源，为计算机上运行的其他软件提供运行环境和控制机制，同时也为用户提供了与计算机交互的界面。操作系统的主要功能包括进程管理、内存管理、文件系统管理、输入&#x2F;输出设备管理等。</li>
+<li>操作系统能够管理和控制（调度）计算机硬件，如内存，处理器，显卡，网卡……</li>
+<li>在了解操作系统之前，我们还需要熟知计算机系统中的软件和硬件。</li>
+</ol>
+<p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_linux1_6.png" alt="在这里插入图片描述"></p>
+<h4 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h4><p>首先，软件是一组指令和数据，它告诉计算机如何执行特定的任务和操作。软件可以分为两大类：<strong>系统软件</strong>和<strong>应用软件</strong>。</p>
+<ul>
+<li><p>系统软件：它提供了硬件运行的基本功能和计算机操作的基础环境。包括操作系统（如Windows、macOS、Linux）、设备驱动程序、诊断工具、服务器软件、窗口系统和实用程序等。</p>
+</li>
+<li><p>应用软件：它是为了帮助用户执行特定的任务而设计的程序。例如，文字处理软件（如Microsoft Word）、网页浏览器（如Google Chrome）、电子邮件客户端、图形和视频编辑软件、数据库管理系统等。</p>
+</li>
+</ul>
+<h4 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h4><ol start="7">
+<li><p>硬件（英文名Hardware）是计算机硬件的简称，是指计算机系统中由电子，机械和光电元件等组成的各种物理装置的总称。这些物理装置按系统结构的要求构成一个有机整体为计算机软件运行提供物质基础。</p>
+</li>
+<li><p>简而言之，硬件的功能是输入并存储程序和数据，以及执行程序把数据加工成可以利用的形式。从外观上来看，微机由主机箱和外部设备组成。主机箱内主要包括CPU、内存、主板、硬盘驱动器、光盘驱动器、各种扩展卡、连接线、电源等；外部设备包括鼠标、键盘等。</p>
+</li>
+<li><p>举个简单例子：我们模拟一个用户A发送信息给用户B</p>
+</li>
+</ol>
+<p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_linux1_2.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>在计算机中，操作系统是其最基本也是最为重要的基础性系统软件。从计算机用户的角度来说，计算机操作系统体现为其提供的各项服务；从程序员的角度来说，其主要是指用户登录的界面或者接口；如果从设计人员的角度来说，就是指各式各样模块和单元之间的联系。事实上，全新操作系统的设计和改良的关键工作就是对体系结构的设计，经过几十年以来的发展，计算机操作系统已经由一开始的简单控制循环体发展成为较为复杂的分布式操作系统，再加上计算机用户需求的愈发多样化，计算机操作系统已经成为既复杂而又庞大的计算机软件系统之一。</p>
+</blockquote>
+<h3 id="常见的操作系统"><a href="#常见的操作系统" class="headerlink" title="常见的操作系统"></a>常见的操作系统</h3><h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><ol>
+<li>我们对Windows操作系统再熟悉不过了 ，它是有美国微软公司开发的以<strong>图形用户界面</strong>为基础研发的操作系统。</li>
+<li>Windows操作系统主要运用于计算机、智能手机等设备。共有普通版本、服务器版本（Windows Server）、手机版本（Windows Phone等）、嵌入式版本（Windows CE等）等子系列，是全球应用最广泛的操作系统之一。</li>
+<li>Windows操作系统在经过几十年的发展，如今已更新到更先进智能的Windows11系统。</li>
+</ol>
+<p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_linux1_3.png" alt="在这里插入图片描述"></p>
+<h4 id="MacOS"><a href="#MacOS" class="headerlink" title="MacOS"></a>MacOS</h4><ol>
+<li>MacOS是一套由美国苹果公司开发的运行于Macintosh系列电脑上的操作系统。它是首个在商用领域成功的<strong>图形用户界面</strong>操作系统。</li>
+<li>MacOS基于UNIX开发，是Macintosh操作系统的前身。</li>
+</ol>
+<p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_linux1_4.png" alt="在这里插入图片描述"></p>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><ol>
+<li>Linux一般指GNU&#x2F;Linux（单独的Linux内核并不可直接使用，一般搭配GNU套件，故得此称呼），是一种免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds）于1991年10月5日首次发布，它主要受到Minix和Unix思想的启发，是一个基于POSIX的多用户、多任务、支持多线程和多CPU的操作系统。它支持32位和64位硬件，能运行主要的Unix工具软件、应用程序和网络协议。</li>
+<li>Linux是完全开放源代码的，这些对于Windows和Mac更加经济。常用于服务器领域。</li>
+</ol>
+<p><img src="https://gcore.jsdelivr.net/gh/Almango/Blog_imgbed@main/post/post_linux1_5.png" alt="在这里插入图片描述"></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><ol>
+<li>本期主要简单的讲解一下我对学习Linux的看法，和操作系统的基本认识。</li>
+<li>所以就不过多的赘述了。</li>
+</ol>
+<p>​                                  </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Almango</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/22/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%89%8D%E8%A8%80%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%9D%E8%AF%86%E3%80%901%E3%80%91/">http://example.com/2024/06/22/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%89%8D%E8%A8%80%E4%B8%8E%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%88%9D%E8%AF%86%E3%80%901%E3%80%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><a class="post-meta__tags" href="/tags/%E5%BC%80%E6%BA%90/">开源</a></div><div class="post-share"><div class="social-share" data-image="/img/cover/Linux.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2024/06/17/CSharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0_%E5%A4%9A%E6%80%81%E3%80%90%E5%8D%81%E4%B9%9D%E3%80%91/" title="C#(CSharp)学习笔记_多态【十九】"><img class="cover" src="/img/cover/csharp.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">C#(CSharp)学习笔记_多态【十九】</div></div><div class="info-2"><div class="info-item-1">前言 个人觉得多态在面向对象编程中还比较重要的，而且不容易理解。 也是学了一个下午，才把笔记写得相对比较完善，但仍欠缺一些内容。 慢慢来吧……  什么是多态？基本概念 在编程语言和类型论中，多态（Polymorphism）指为不同数据类型的实体提供统一的接口。 多态类型（Polymorphic Type）可以将自身所支持的操作套用到其它类型的值上。 多态是面向对象编程（OOP）的一个基本概念，是面向对象的三大特征之一。它允许不同的对象对同一消息做出响应，但具体的行为会根据对象的实际类型而有所不同。在C#中，多态主要通过继承和接口实现。本文将探讨多态的基本概念、实现方式以及在C#中的一些实际应用。 多态性可以定义为允许不同类的对象对同一消息做出响应的能力，但具体响应取决于消息接收者的实际类型。简单来说，多态性允许我们编写更通用的代码，可以处理不同类型的对象。  多态的作用1. 接口实现：多态使得一个接口可以有多种不同的实现方式。子类可以重写父类的方法，以提供特定的实现。 2. 代码复用：通过继承和多态，可以减少代码的重复编写，提高代码的复用性。 3....</div></div></div></a><a class="pagination-related" href="/2024/07/13/Adobe%20Photoshop%20CC20xx%E7%89%88%E6%9C%AC%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD/" title="Adobe Photoshop CC20xx版本资源下载"><img class="cover" src="/img/cover/ps.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Adobe Photoshop CC20xx版本资源下载</div></div><div class="info-2"><div class="info-item-1"> Adobe Photoshop，简称“PS”和“Ps”，是由Adobe Systems开发和发行的图像处理软件。Photoshop主要处理以像素所构成的数字图像。使用其众多的编修与绘图工具，可以有效地进行图片编辑和创造工作。PS有很多功能，在图像、图形、文字、视频、出版等各方面都有涉及。  免责声明：本站所发布的一切破解补丁、注册机和注册信息及软件的解密分析文章仅限用于学习和研究目的；不得将上述内容用于商业或者非法用途，否则，一切后果请用户自负。本站信息来自网络，版权争议与本站无关。您必须在下载后的24个小时之内，从您的电脑中彻底删除上述内容。如果您喜欢该程序，请支持正版软件，购买注册，得到更好的正版服务。 20xx版本总览 本期包含了Adobe Photoshop图像处理软件从CC2020版本到CC2024版本的下载资源，在下载前请注意免责声明。‘ 提取码：PSxx     版本 大小 链接    Adobe Photoshop CC2024 xxGB    Adobe Photoshop...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2024/06/11/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9A%E6%8E%A2%E7%B4%A2%E5%BC%80%E6%BA%90%E4%B8%96%E7%95%8C%E7%9A%84%E5%A4%A7%E9%97%A8/" title="Linux操作系统：探索开源世界的大门(AI创作)"><img class="cover" src="/img/cover/Linux.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-11</div><div class="info-item-2">Linux操作系统：探索开源世界的大门(AI创作)</div></div><div class="info-2"><div class="info-item-1">Linux操作系统：探索开源世界的大门引言Linux，一个由Linus Torvalds于1991年创建的开源操作系统内核，已经成为全球最流行的操作系统之一。它以其稳定性、安全性、灵活性和开源特性而闻名。本文将深入探讨Linux操作系统的基本概念、优势和使用场景，并提供一些入门指南，帮助新手用户快速掌握Linux。 Linux的起源Linux的诞生是计算机历史上的一个里程碑。Linus...</div></div></div></a><a class="pagination-related" href="/2024/07/15/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9AFedora%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E9%83%A8%E7%BD%B2%E3%80%902%E3%80%91/" title="Linux学习笔记：Fedora操作系统的介绍与部署【2】"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2024-07-15</div><div class="info-item-2">Linux学习笔记：Fedora操作系统的介绍与部署【2】</div></div><div class="info-2"><div class="info-item-1"> 什么是Fedora？ Fedora是一种基于Linux的操作系统，由社区支持和开发。Fedora是一个免费开源的操作系统，提供了最新的软件和技术，适用于开发人员、系统管理员和普通用户。Fedora采用RPM软件包管理系统，并使用GNOME桌面环境作为默认桌面。Fedora还提供了许多工具和应用程序，如编程语言、开发工具、办公软件等，使用户能够轻松地完成各种任务。  Fedora是由Fedora项目社区开发、红帽公司赞助，目标是创建一套新颖、多功能并且自由（开放源代码）的操作系统。Fedora是商业化的Red Hat Enterprise Linux发行版的上游源码。  Fedora是一个以社区为基础的Linux操作系统，由Fedora Project社区维护，并由红帽（Red...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AD%A6%E4%B9%A0Linux"><span class="toc-number">1.1.</span> <span class="toc-text">为什么学习Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87"><span class="toc-number">1.2.</span> <span class="toc-text">准备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.</span> <span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">什么是操作系统？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6"><span class="toc-number">2.1.1.</span> <span class="toc-text">软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6"><span class="toc-number">2.1.2.</span> <span class="toc-text">硬件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.2.</span> <span class="toc-text">常见的操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows"><span class="toc-number">2.2.1.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MacOS"><span class="toc-number">2.2.2.</span> <span class="toc-text">MacOS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux"><span class="toc-number">2.2.3.</span> <span class="toc-text">Linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: white;"><div id="footer-wrap"><div id="footer-left"><div class="footer-title"><span>Hexo | </span><span class="footer-copyright">&copy;2023 - 2025 By Almango</span></div><div class="footer-button"><a title="GitHub" target="_blank" rel="noopener" href="https://github.com/Almango"><i class="fab fa-github"></i></a><a title="微博" target="_blank" rel="noopener" href="https://weibo.com/u/7936064867"><i class="fab fa-weibo"></i></a><a title="bilibili" target="_blank" rel="noopener" href="https://space.bilibili.com/1278951656?spm_id_from=333.1007.0.0"><i class="fab fa-bilibili"></i></a><a title="twitterb" target="_blank" rel="noopener" href="https://twitter.com/Receiver99xkk?t=UoMBRIY0a-csS_gUb9aIRg&amp;s=09"><i class="fa-brands fa-x-twitter"></i></a><a title="Email" target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?deeplink=%2fowa%2f0%2f%3fstate%3d1%26redirectTo%3daHR0cHM6Ly9vdXRsb29rLmxpdmUuY29tL21haWwvMC8&amp;sdf=0"><i class="fa-solid fa-envelope"></i></a></div><div class="wordcount"></div><span>Almano已经写了 95.2k 字，</span><span>好像写完一本 林海音 的 《城南旧事》 了啊</span></div><div id="footer-right"><div class="footer-totop"><i class="fas fa-chevron-up" onclick="scrollToTop()"></i></div><div class="footer-info"><p>使用Hexo框架 | 本站基于butterfly主题魔改</p><a title="萌ICP备号 20240146" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=20240146"><img src="/img/footer_moe.png" alt="备案图标" style="height: 16px;margin-right: 3px;filter: grayscale(1);"/>萌ICP备号: 20240146号</a></div><div class="footer-service"><a title="腾讯云" target="_blank" rel="noopener" href="https://cloud.tencent.com"><img alt="腾讯云" src="https://cdn.ichika.cc/typora/202211071552681.png!towebp"/></a><a title="51LA" target="_blank" rel="noopener" href="https://www.51.la"><img alt="51LA" src="https://cdn.ichika.cc/typora/202211071552427.png!towebp"/></a><a title="CC BY-NC-SA 4.0" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><img alt="CC BY-NC-SA 4.0" src="https://cdn.ichika.cc/typora/202211071552856.png!towebp"/></a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  let initFn = window.walineFn || null
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const destroyWaline = ele => ele.destroy()
+
+  const initWaline = (Fn, el = document, path = window.location.pathname) => {
+    const waline = Fn({
+      el: el.querySelector('#waline-wrap'),
+      serverURL: 'https://www.almango.top/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      comment: false,
+      ...option,
+      path: isShuoshuo ? path : (option && option.path) || path
+    })
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyWaline = () => {
+        destroyWaline(waline)
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const loadWaline = (el, path) => {
+    if (initFn) initWaline(initFn, el, path)
+    else {
+      btf.getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css')
+        .then(() => import('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js'))
+        .then(({ init }) => {
+          initFn = init || Waline.init
+          initWaline(initFn, el, path)
+          window.walineFn = initFn
+        })
+    }
+  }
+
+  if (isShuoshuo) {
+    'Waline' === 'Waline'
+      ? window.shuoshuoComment = { loadComment: loadWaline } 
+      : window.loadOtherComment = loadWaline
+    return
+  }
+
+  if ('Waline' === 'Waline' || !true) {
+    if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+    else setTimeout(loadWaline, 0)
+  } else {
+    window.loadOtherComment = loadWaline
+  }
+})()</script></div><script src="/js/custom.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title=""><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题版本Butterfly_v3.8.2" title=""><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a><a class="github-badge" target="_blank" href="https://www.jsdelivr.com/" style="margin-inline:5px" data-title="本站使用JsDelivr为静态资源提供CDN加速" title=""><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&amp;logo=jsDelivr" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，默认线路托管于Vercel" title=""><img src="https://img.shields.io/badge/Hosted-Vercel-brightgreen?style=flat&amp;logo=Vercel" alt=""/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站采用双线部署，联通线路托管于Coding" title=""><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&amp;logo=Codio" alt=""/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title=""><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&amp;logo=GitHub" alt=""/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title=""><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris" alt=""/></a><a class="github-badge" target="_blank" href="https://icp.gov.moe/?keyword=20240146" style="margin-inline:5px" data-title="萌ICP备 纯属萌友网站联萌！" title=""><img src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20240146-fe1384?style-flat&amp;logo=data:image/png;base64,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" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><!-- hexo injector body_end end --></body></html>
