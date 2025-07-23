@@ -2,9 +2,9 @@
   font-family: "iconfont"; /* Project id 4736490 */
   /* Color fonts */
   src: 
-       url('//at.alicdn.com/t/c/font_4736490_hxazcikbxva.woff2?t=1739080580951') format('woff2'),
-       url('//at.alicdn.com/t/c/font_4736490_hxazcikbxva.woff?t=1739080580951') format('woff'),
-       url('//at.alicdn.com/t/c/font_4736490_hxazcikbxva.ttf?t=1739080580951') format('truetype');
+       url('//at.alicdn.com/t/c/font_4736490_oscmsanlb2.woff2?t=1753253660425') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4736490_oscmsanlb2.woff?t=1753253660425') format('woff'),
+       url('//at.alicdn.com/t/c/font_4736490_oscmsanlb2.ttf?t=1753253660425') format('truetype');
 }
 
 .iconfont {
@@ -13,6 +13,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-chabei:before {
+  content: "\e60b";
+}
+
+.icon-daima:before {
+  content: "\e643";
 }
 
 .icon-icon-sousuo:before {
@@ -33,10 +41,6 @@
 
 .icon-34rocket:before {
   content: "\e62e";
-}
-
-.icon-terminalzhongduan:before {
-  content: "\e6ea";
 }
 
 .icon-shejiaotubiao-26:before {
@@ -81,7 +85,6 @@
 
 .icon-caidan:before {
   content: "\e662";
-  font-size: 18px;
 }
 
 .icon-github:before {
@@ -140,28 +143,12 @@
   content: "\e687";
 }
 
-.icon-python:before {
-  content: "\e6f2";
-}
-
-.icon-JavaScript:before {
-  content: "\e704";
-}
-
 .icon-zhifeiji-copy:before {
   content: "\e615";
 }
 
 .icon-qunfariji:before {
   content: "\e666";
-}
-
-.icon-cpp:before {
-  content: "\e61a";
-}
-
-.icon-csharp:before {
-  content: "\e63a";
 }
 
 .icon-wenzhang:before {
