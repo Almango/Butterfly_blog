@@ -30,6 +30,7 @@
 /* 修改文章卡片背景透明度 */
 #recent-posts .recent-post-item {
     background-color: rgb(255, 255, 255, 0.3);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 #footer::before {
@@ -217,10 +218,17 @@
 
 
 
-/* 文章版权卡片动态渐变色 */
+/* 文章版权卡片 */
 .post-copyright {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    
 }
+
+/* 文章主体框*/
+#post, #page, #archive, #category{
+box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
 
 
 /* 导航栏样式  */
@@ -242,6 +250,7 @@
 #nav .menus_items .menus_item:hover .menus_item_child {
     display: flex;
     border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 #nav .menus_items .menus_item .menus_item_child li {
