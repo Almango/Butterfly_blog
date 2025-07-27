@@ -147,7 +147,7 @@
       const eleGroup = document.querySelectorAll('#recent-posts .waline-comment-count')
       const keyArray = Array.from(eleGroup).map(i => i.getAttribute('data-path'))
 
-      const res = await fetch(`https://www.almango.top/api/comment?type=count&url=${keyArray}`, { method: 'GET' })
+      const res = await fetch(`https://www.almango.fun/api/comment?type=count&url=${keyArray}`, { method: 'GET' })
       const result = await res.json()
       
       result.data.forEach((count, index) => {
